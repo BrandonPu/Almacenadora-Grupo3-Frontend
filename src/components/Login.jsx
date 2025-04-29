@@ -93,7 +93,7 @@ import { useState } from "react";
                     Iniciar Sesión
                  </button>
              </form>
-             <span onClick={switchAuthHandler} className="auth-form-swith-label">
+             <span onClick={switchAuthHandler} className="auth-form-switch-label">
                 No tienes una cuenta? Crear Cuenta aqui
              </span>
          </div>

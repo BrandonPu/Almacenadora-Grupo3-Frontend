@@ -110,7 +110,7 @@ export const Register = ({switchAuthHandler}) =>{
         !formState.password.isValid ||
         !formState.passwordConfir.isValid;
     return(
-        <div className="register">
+        <div className="register-container">
             <Logo text={'Register Almacenadora'}/>
             <form className="auth-form">
                 <Input
