@@ -30,7 +30,7 @@ export const useLogin = () => {
 
         toast.success("Seción iniciada correctamente")
 
-        navigate('/')
+        navigate('/dashboardPage')
     }
     return {
         login,

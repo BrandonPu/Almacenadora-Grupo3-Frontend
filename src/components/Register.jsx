@@ -9,9 +9,7 @@ import {
     validateUsernameMessage,
     emailValidationMessage,
     validatePasswordMessage,
-    passwordConfirmationMessage,
-    validatePhone,
-    validatePhoneMessage
+    passwordConfirmationMessage
 } from '../shared/validators'
 import { useRegister } from "../shared/hooks"
 
@@ -24,12 +22,12 @@ export const Register = ({switchAuthHandler}) =>{
             isValid: false,
             showError: false
         },
-        lasName:{
+        surname:{
             value: '',
             isValid: false,
             showError: false
         },
-        phone:{
+        username:{
             value: '',
             isValid: false,
             showError: false
@@ -68,11 +66,11 @@ export const Register = ({switchAuthHandler}) =>{
             case 'name':
                 isValid = validateUsername(value);
                 break;
-            case 'lasName':
+            case 'surname':
                 isValid = validateUsername(value);
                 break;
-            case 'phone':
-                isValid = validatePhone(value);
+            case 'username':
+                isValid = validateUsername(value);
                 break;
             case 'email':
                 isValid = validateEmail(value);
@@ -99,18 +97,18 @@ export const Register = ({switchAuthHandler}) =>{
 
     const handleRegister = (event) => {
         event.preventDefault()
-        register(formState.name.value, formState.lasName.value, formState.phone.value, formState.email.value, formState.password.value)
+        register(formState.name.value, formState.surname.value, formState.username.value, formState.email.value, formState.password.value)
     }
 
     const isSubmitButtonDisabled = isLoading || 
         !formState.name.isValid ||
-        !formState.lasName.isValid ||
-        !formState.phone.isValid ||
+        !formState.surname.isValid ||
+        !formState.username.isValid ||
         !formState.email.isValid ||
         !formState.password.isValid ||
         !formState.passwordConfir.isValid;
     return(
-        <div className="register-container">
+        <div className="register">
             <Logo text={'Register Almacenadora'}/>
             <form className="auth-form">
                 <Input
@@ -124,24 +122,24 @@ export const Register = ({switchAuthHandler}) =>{
                     validationMessage={validateUsernameMessage}
                 />
                 <Input
-                    field='lasName'
-                    label='LasName'
-                    value={formState.lasName.value}
+                    field='surname'
+                    label='Surname'
+                    value={formState.surname.value}
                     onChangeHandler={handleInputValueChange}
                     type='text'
                     onBlurHandler={handleInputValidationOnBlur}
-                    showErrorMessage={formState.lasName.showError}
+                    showErrorMessage={formState.surname.showError}
                     validationMessage={validateUsernameMessage}
                 />
                 <Input
-                    field='phone'
-                    label='Phone'
-                    value={formState.phone.value}
+                    field='username'
+                    label='Username'
+                    value={formState.username.value}
                     onChangeHandler={handleInputValueChange}
-                    type='tel'
+                    type='text'
                     onBlurHandler={handleInputValidationOnBlur}
-                    showErrorMessage={formState.phone.showError}
-                    validationMessage={validatePhoneMessage}
+                    showErrorMessage={formState.username.showError}
+                    validationMessage={validateUsernameMessage}
                 />
                 <Input
                     field='email'
