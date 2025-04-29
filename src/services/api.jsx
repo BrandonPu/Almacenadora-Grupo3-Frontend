@@ -2,7 +2,7 @@ import axios from 'axios';
 import { data } from 'react-router-dom';
 
 const apiClient = axios.create({
-    baseURL: "https://127.0.0.1:8000/almacenadora/v1",
+    baseURL: "http://127.0.0.1:3001/almacenadora/v1",
     timeout: 5000
 })
 
