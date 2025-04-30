@@ -1,0 +1,31 @@
+.carousel-wrapper {
+    background-color: #cfd8dc;
+    padding: 5rem 1rem;
+}
+
+.carousel-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.carousel-subtitle {
+    color: #444;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.carousel img {
+    border-radius: 8px;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.carousel-indicators button {
+    background-color: #333;
+}
+
+.intro-section {
+    background-color: #343a40;
+  }
