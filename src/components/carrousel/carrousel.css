@@ -29,3 +29,12 @@
 .intro-section {
     background-color: #343a40;
   }
+
+  .carousel-item {
+    transition: transform 0.6s ease-in-out;
+}
+
+.carousel-inner {
+    overflow: hidden;
+}
+ 

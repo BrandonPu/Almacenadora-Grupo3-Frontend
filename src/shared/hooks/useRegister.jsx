@@ -26,7 +26,7 @@ export const useRegister = () => {
 
         toast.success('Usuario registrado Corretamente');
 
-        navigate('/dashboardPage')
+        navigate('/')
 
     }
 

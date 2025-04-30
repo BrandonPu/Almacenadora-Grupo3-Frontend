@@ -1,5 +1,6 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import logo from '../../assets/img/logomyaccount.jpg'
 
 export const Navbar = () => {
 
@@ -27,25 +28,46 @@ export const Navbar = () => {
                     <div className="offcanvas-body d-flex flex-column justify-content-between" style={{ height: '100%' }}>
                         <ul className="navbar-nav pe-3">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">Inicio</a>
+                            <NavLink to="/dashboardPage" className="nav-link">
+                            Inicio
+                            </NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Productos</a>
+                            <NavLink to="/productos" className="nav-link">
+                            Productos
+                            </NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Clientes</a>
+                            <NavLink to="/clientes" className="nav-link">
+                            Clientes
+                            </NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">#</a>
+                            <NavLink to="/clientes" className="nav-link">
+                            #
+                            </NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">#</a>
+                            <NavLink to="/clientes" className="nav-link">
+                            #
+                            </NavLink>
                             </li>
                         </ul>
-                        <div className="text-end">
-                            <button className="btn btn-danger mt-3" onClick={handleLogout}>
-                                Cerrar sesión
-                            </button>
+                        <div className="d-flex flex-column align-items-end gap-2 mt-4">
+
+                        <NavLink
+                        to="/account"
+                        className={({ isActive }) =>
+                            `btn btn-outline-light d-flex align-items-center gap-2 ${isActive ? 'active' : ''}`
+                        }
+                        >
+                        <img src={logo} alt="Cuenta" style={{ width: '30px', height: '30px' }} />
+                        My Account
+                        </NavLink>
+
+                        <button className="btn btn-danger" onClick={handleLogout}>
+                            Cerrar sesión
+                        </button>
                         </div>
                     </div>
                 </div>
