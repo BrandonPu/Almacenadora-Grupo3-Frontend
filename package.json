@@ -12,6 +12,7 @@
   "dependencies": {
     "almacenadora-frontend-in6cv": "file:",
     "axios": "^1.9.0",
+    "bootstrap": "^5.3.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",
