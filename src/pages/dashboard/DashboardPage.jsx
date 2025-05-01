@@ -6,7 +6,7 @@ export const DashboardPage = () => {
     return (
         <div>
             <Navbar />
-            <div style={{ paddingTop: '70px' }}/>
+            <div style={{ paddingTop: '55px' }}/>
             <ProductCarousel />
             <div style={{ paddingTop: '10px' }}/>
         </div>

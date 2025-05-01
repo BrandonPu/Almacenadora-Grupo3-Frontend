@@ -2,7 +2,10 @@
     min-height: 100vh;
     background: linear-gradient(135deg, #f8f9fa, #e9ecef);
     display: flex;
-    background-image: url('../../assets/img/fondo2.jpg');
+    background-image: url('../../assets/img/fondo2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     justify-content: center;
     align-items: center;
     padding: 2rem;
@@ -12,16 +15,16 @@
     width: 100%;
     max-width: 500px;
     border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.15); /* Fondo translúcido */
-    backdrop-filter: blur(10px); /* Desenfoque */
-    -webkit-backdrop-filter: blur(10px); /* Safari */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
     color: white;
     animation: fadeInUp 0.8s ease-out;
 }
 .account-header {
-    background-color: #343a40;
+    background-color: #2f302873;
     color: white;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
@@ -49,7 +52,7 @@
 
 .list-group-item {
     background-color: transparent;
-    border: none;
+
     color: white;
 }
 
