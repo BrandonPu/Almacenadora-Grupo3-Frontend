@@ -12,7 +12,7 @@ export const Navbar = () => {
 
         navigate('/');
     };
-    
+
     return (
         <nav className="navbar navbar-dark bg-dark fixed-top">
             <div className="container-fluid">
@@ -28,12 +28,13 @@ export const Navbar = () => {
                     <div className="offcanvas-body d-flex flex-column justify-content-between" style={{ height: '100%' }}>
                         <ul className="navbar-nav pe-3">
                             <li className="nav-item">
+
                             <NavLink to="/dashboardPage" className="nav-link">
                             Inicio
                             </NavLink>
                             </li>
                             <li className="nav-item">
-                            <NavLink to="/productos" className="nav-link">
+                            <NavLink to="/productPage" className="nav-link">
                             Productos
                             </NavLink>
                             </li>
@@ -54,20 +55,19 @@ export const Navbar = () => {
                             </li>
                         </ul>
                         <div className="d-flex flex-column align-items-end gap-2 mt-4">
+                            <NavLink
+                                to="/account"
+                                className={({ isActive }) =>
+                                    `btn btn-outline-light d-flex align-items-center gap-2 ${isActive ? 'active' : ''}`
+                                }
+                            >
+                                <img src={logo} alt="Cuenta" style={{ width: '30px', height: '30px' }} />
+                                My Account
+                            </NavLink>
 
-                        <NavLink
-                        to="/account"
-                        className={({ isActive }) =>
-                            `btn btn-outline-light d-flex align-items-center gap-2 ${isActive ? 'active' : ''}`
-                        }
-                        >
-                        <img src={logo} alt="Cuenta" style={{ width: '30px', height: '30px' }} />
-                        My Account
-                        </NavLink>
-
-                        <button className="btn btn-danger" onClick={handleLogout}>
-                            Cerrar sesión
-                        </button>
+                            <button className="btn btn-danger" onClick={handleLogout}>
+                                Cerrar sesión
+                            </button>
                         </div>
                     </div>
                 </div>

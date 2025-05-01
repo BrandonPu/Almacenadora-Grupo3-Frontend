@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { register as registerRequest} from "../../services";
+import { register as registerRequest } from "../../services";
 import toast from "react-hot-toast";
 
 
@@ -9,28 +9,29 @@ export const useRegister = () => {
 
     const navigate = useNavigate();
 
-    const register = async(name, surname , username , email , password , ) => {
+    const register = async (name, surname, username, email, password,) => {
         setIsLoading(true)
 
-        const response = await registerRequest({name, surname, username, email, password})
+        const response = await registerRequest({ name, surname, username, email, password })
 
         setIsLoading(false)
 
-        if(response.error){
+        if (response.error) {
             return toast.error(response.error?.response?.data || 'Ocurrio un error al registrar, untenta de nuevo')
         }
 
-        const {userDetails} = response.data
+        const { userDetails } = response.data
 
         localStorage.setItem('user', JSON.stringify(userDetails));
 
         toast.success('Usuario registrado Corretamente');
 
-        navigate('/')
+        navigate('/', { replace: true });
+        window.location.reload();
 
     }
 
-    return{
+    return {
         register,
         isLoading
     }
