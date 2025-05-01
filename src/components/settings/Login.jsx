@@ -6,8 +6,8 @@ import { useState } from "react";
      validateEmail,
      validatePasswordMessage,
      validatePassword
- } from "../shared/validators";
- import { useLogin } from "../shared/hooks"
+ } from "../../shared/validators";
+ import { useLogin } from "../../shared/hooks"
  
  export const Login = ({ switchAuthHandler }) => {
      

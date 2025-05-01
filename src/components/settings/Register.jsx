@@ -10,8 +10,8 @@ import {
     emailValidationMessage,
     validatePasswordMessage,
     passwordConfirmationMessage
-} from '../shared/validators'
-import { useRegister } from "../shared/hooks"
+} from '../../shared/validators'
+import { useRegister } from "../../shared/hooks"
 
 export const Register = ({switchAuthHandler}) =>{
     const {register, isLoading} = useRegister()
