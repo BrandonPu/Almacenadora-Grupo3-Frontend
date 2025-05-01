@@ -13,13 +13,13 @@ export const ProductTable = () => {
             <table border="1">
                 <thead>
                     <tr>
-                        {["ID", "Nombre", "Descripción", "Stock", "Precio", "Fecha de Entrada"].map((header, i) => (
+                        {["ID", "Nombre", "Descripción", "Stock", "Precio", "Fecha de Entrada", "Fecha de Salida"].map((header, i) => (
                             <th key={i}>{header}</th>
                         ))}
                     </tr>
                 </thead>
                 <tbody>
-                    {products.map(({ _id, nameProduct, description, stock, price, entryDate }) => (
+                    {products.map(({ _id, nameProduct, description, stock, price, entryDate, expirationDate }) => (
                         <tr key={_id}>
                             <td>{_id}</td>
                             <td>{nameProduct}</td>
@@ -27,6 +27,7 @@ export const ProductTable = () => {
                             <td>{stock}</td>
                             <td>Q.{price}</td>
                             <td>{new Date(entryDate).toLocaleDateString()}</td>
+                            <td>{new Date(expirationDate).toLocaleDateString()}</td>
                         </tr>
                     ))}
                 </tbody>

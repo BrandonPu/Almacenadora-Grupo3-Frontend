@@ -1,14 +1,10 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
-}
+
 
 /* Contenedor principal */
 .product-container {
     max-width: 900px;
     margin: auto;
+    margin-top: 0; /* Ya no hace falta, está en el body */
     background: white;
     padding: 20px;
     border-radius: 10px;

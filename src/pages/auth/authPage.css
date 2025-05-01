@@ -1,45 +1,28 @@
 .auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url('../../assets/img/Fondo.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #fff;
-    font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../../assets/img/Fondo.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-family: Arial, sans-serif;
 }
-  
+
 @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-.login-container {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 40px;
-    border-radius: 8px;
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    backdrop-filter: blur(10px);
-
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 1);
-
-    animation: fadeIn 1s ease-out;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.register-container {
+.login-container {
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 40px;
@@ -55,72 +38,89 @@
 
   animation: fadeIn 1s ease-out;
 }
-  
-  .auth-form-logo-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 30px;
-  }
-  
-  .auth-form-logo-container img {
-    width: 175px;
-    margin-bottom: 10px;
-  }
-  
-  .auth-form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .auth-form-label span {
-    font-size: 14px;
-    margin-bottom: 4px;
-    display: block;
-    color: #ffffff;
 
-  }
-  
-  .auth-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #121212;
-    border: 1px solid #333;
-    border-radius: 4px;
-    color: white;
-  }
-  
-  .auth-form input:focus {
-    outline: none;
-    border-color: #3897f0;
-  }
-  
-  .auth-form-validation-message {
-    color: #ff0000;
-    font-size: 12px;
-  }
-  
-  .auth-form button {
-    background-color: #3897f0;
-    color: white;
-    padding: 10px;
-    border: none;
-    margin-top: 10px;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .auth-form button:disabled {
-    background-color: #4a7db3;
-    cursor: not-allowed;
-  }
-  
-  .auth-form-switch-label {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #3897f0;
-    cursor: pointer;
-  }
+.register-container {
+background: rgba(0, 0, 0, 0.3);
+border: 1px solid rgba(255, 255, 255, 0.1);
+padding: 40px;
+border-radius: 8px;
+width: 350px;
+display: flex;
+flex-direction: column;
+align-items: center;
+
+backdrop-filter: blur(10px);
+
+box-shadow: 0 4px 30px rgba(0, 0, 0, 1);
+
+animation: fadeIn 1s ease-out;
+}
+
+.auth-form-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.auth-form-logo-container img {
+  width: 175px;
+  margin-bottom: 10px;
+}
+
+.auth-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form-label span {
+  font-size: 14px;
+  margin-bottom: 4px;
+  display: block;
+  color: #ffffff;
+
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #121212;
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: white;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #3897f0;
+}
+
+.auth-form-validation-message {
+  color: #ff0000;
+  font-size: 12px;
+}
+
+.auth-form button {
+  background-color: #3897f0;
+  color: white;
+  padding: 10px;
+  border: none;
+  margin-top: 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.auth-form button:disabled {
+  background-color: #4a7db3;
+  cursor: not-allowed;
+}
+
+.auth-form-switch-label {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #3897f0;
+  cursor: pointer;
+}

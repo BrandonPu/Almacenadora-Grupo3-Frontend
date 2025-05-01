@@ -38,3 +38,14 @@ export const getProducts = async () => {
         return { error: true, message: response?.data || "Error al obtener productos" };
     }
 };
+
+export const registerProduct = async (productData) => {
+    try {
+        return await apiClient.post("/products/addProduct", productData);
+    } catch (error) {
+        return {
+            error: true,
+            message: error.response?.data || "Error al registrar el producto"
+        };
+    }
+};
