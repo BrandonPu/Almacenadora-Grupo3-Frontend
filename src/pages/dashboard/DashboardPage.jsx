@@ -7,7 +7,7 @@ export const DashboardPage = () => {
         <div>
             <Navbar />
             <div style={{ paddingTop: '70px' }}/>
-                <ProductCarousel />
+            <ProductCarousel />
             <div style={{ paddingTop: '10px' }}/>
         </div>
     );

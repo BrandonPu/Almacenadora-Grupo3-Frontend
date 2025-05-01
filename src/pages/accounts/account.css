@@ -1,0 +1,65 @@
+.account-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    display: flex;
+    background-image: url('../../assets/img/fondo2.jpg');
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.account-card {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.15); /* Fondo translúcido */
+    backdrop-filter: blur(10px); /* Desenfoque */
+    -webkit-backdrop-filter: blur(10px); /* Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    color: white;
+    animation: fadeInUp 0.8s ease-out;
+}
+.account-header {
+    background-color: #343a40;
+    color: white;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    padding: 2rem 1rem;
+}
+
+.account-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 50%;
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.account-logo:hover {
+    transform: scale(1.05);
+}
+
+.animate-fade-in {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.list-group-item {
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
