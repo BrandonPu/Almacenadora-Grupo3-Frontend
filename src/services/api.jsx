@@ -61,9 +61,20 @@ export const saveSuplier = async (data) => {
     }
 }
 
-export const deleteSuplier = async (id) =>{
-    try {   
-        return await apiClient.delete(`/suppliers/deleteSupiler/${id}`)
+export const deleteSuplier = async (id) => {
+    try {
+      const response = await apiClient.delete(`/suppliers/deleteSupiler/${id}`, {
+        data: { confirmDeletion: true },
+      });
+      return response.data;
+    } catch (e) {
+      return { error: true, e }
+    }
+}
+
+export const updateSuplier = async(id, data) => {
+    try {
+        return await apiClient.put(`/suppliers/updateSuplier/${id}`, data)
     } catch (e) {
         return{
             error: true,

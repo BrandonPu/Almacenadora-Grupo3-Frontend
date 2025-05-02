@@ -22,11 +22,16 @@ export const SaveSuplier = ({ switchAuthHandler }) => {
             isValid: false,
             showError: false
         },
-        nameProduct: {
+        phoneNumber:{
             value: '',
             isValid: false,
             showError: false
         },
+        nameProduct: {
+            value: '',
+            isValid: false,
+            showError: false
+        }
     })
 
     const handleInputValueChange = (value, field) => {
@@ -48,6 +53,9 @@ export const SaveSuplier = ({ switchAuthHandler }) => {
             case 'emailSupplier':
                 isValid = validateNotEmpty(value)
                 break;
+            case 'phoneNumber':
+                isValid = validateNotEmpty(value)
+                break;
             case 'nameProduct':
                 isValid = validateNotEmpty(value)
                 break;
@@ -66,12 +74,13 @@ export const SaveSuplier = ({ switchAuthHandler }) => {
 
     const handleAgregar = (event) => {
         event.preventDefault();
-        saveSuplier(formState.nameSupplier.value,formState.emailSupplier.value,formState.nameProduct.value)
+        saveSuplier(formState.nameSupplier.value,formState.emailSupplier.value,formState.phoneNumber.value,formState.nameProduct.value)
     }
 
     const isSubmitButtonDisabled = isLoading ||
         !formState.nameSupplier.isValid ||
         !formState.emailSupplier.isValid||
+        !formState.phoneNumber.isValid||
         !formState.nameProduct.isValid;
     return (
         <div className="register">
@@ -95,6 +104,16 @@ export const SaveSuplier = ({ switchAuthHandler }) => {
                     type='text'
                     onBlurHandler={handleInputValidationOnBlur}
                     showErrorMessage={formState.emailSupplier.showError}
+                    validationMessage={validateNotEmptyMessage}
+                />
+                <Input
+                    field='phoneNumber'
+                    label='PhoneNumber'
+                    value={formState.phoneNumber.value}
+                    onChangeHandler={handleInputValueChange}
+                    type='text'
+                    onBlurHandler={handleInputValidationOnBlur}
+                    showErrorMessage={formState.phoneNumber.showError}
                     validationMessage={validateNotEmptyMessage}
                 />
                 <Input

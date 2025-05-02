@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { Login } from "../../components/Login";
-import { Register } from "../../components/Register";
+import { Login } from "../../components/settings/Login";
+import { Register } from "../../components/settings/Register";
 import "./authPage.css"
 
 export const Auth = () => {

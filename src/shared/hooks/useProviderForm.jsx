@@ -8,10 +8,10 @@ export const useProviderForm = () => {
     const token = localStorage.getItem('token');
     const navigate = useNavigate();
 
-    const saveSuplier = async (nameSupplier, emailSupplier, nameProduct) => {
+    const saveSuplier = async (nameSupplier, emailSupplier, phoneNumber ,nameProduct) => {
         setIsLoading(true);
 
-        const response = await saveSuplierRequest({ nameSupplier, emailSupplier, nameProduct });
+        const response = await saveSuplierRequest({ nameSupplier, emailSupplier, phoneNumber ,nameProduct });
 
         setIsLoading(false);
 

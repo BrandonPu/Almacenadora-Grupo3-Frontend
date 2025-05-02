@@ -27,4 +27,4 @@ export const useProviderPage = () => {
         isLoading,
         reload: loadProviders
     };
-};
+}
