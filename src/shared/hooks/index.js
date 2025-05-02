@@ -1,4 +1,5 @@
 export { useLogin } from "./useLogin";
-export { useRegister} from "./useRegister"
-export { useProductView } from "./useProductView";
-export { useRegisterProducts } from "./useRegisterProducts";
+export { useRegister} from "./useRegister";
+export { useProviderPage } from "./useProviderPage";
+export { useProviderForm } from "./useProviderForm"
+export { useDeleteSupplier } from "./useDeleteSupplier";
