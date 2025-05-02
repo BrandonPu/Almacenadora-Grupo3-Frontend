@@ -85,8 +85,9 @@ export const RegisterProduct = ({ switchProductHandler }) => {
         !formState.expirationDate.isValid;
 
     return (
-        <div className="register-container">
+        <div className="registerproducts-container">
             <form className="product-form">
+                <div>
                 <Input
                     field='nameProduct'
                     label='NameProduct'
@@ -123,6 +124,8 @@ export const RegisterProduct = ({ switchProductHandler }) => {
                     onBlurHandler={handleInputValidationOnBlur}
                     showErrorMessage={formState.nameCategory.showError}
                 />
+                </div>
+                <div>
                 <Input
                     field='price'
                     label='Price'
@@ -150,8 +153,11 @@ export const RegisterProduct = ({ switchProductHandler }) => {
                     onBlurHandler={handleInputValidationOnBlur}
                     showErrorMessage={formState.expirationDate.showError}
                 />
+                </div>
+                
+                
                 <button onClick={handleRegister} disabled={isSubmitButtonDisabled}>
-                    RegisterProduct
+                    Registrar Producto
                 </button>
             </form>
         </div>

@@ -60,16 +60,16 @@ export const ProductCarousel = () => {
                     <button type="button" data-bs-target="#multiItemCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
             </div>
-        </div>
-        <section className="intro-section text-white text-center py-5">
-            <div className="container">
-                <h3>¿Quiénes somos?</h3>
-                <p className="lead">
-                    Somos un almacén comprometido con ofrecerte una amplia variedad de productos: desde artículos del hogar y herramientas, hasta productos de salud, tecnología y más.
-                    Todo en un solo lugar para facilitar tu día a día.
-                </p>
-            </div>
+            <section className="intro-section">
+                <div className="container">
+                    <h3>¿Quiénes somos?</h3>
+                    <p className="lead">
+                        Somos un almacén comprometido con ofrecerte una amplia variedad de productos: desde artículos del hogar y herramientas, hasta productos de salud, tecnología y más.
+                        Todo en un solo lugar para facilitar tu día a día.
+                    </p>
+                </div>
         </section>
+        </div>
         </>
     );
 };

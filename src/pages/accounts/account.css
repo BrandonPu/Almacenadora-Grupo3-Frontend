@@ -1,34 +1,32 @@
 .account-container {
     min-height: 100vh;
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    background: linear-gradient(135deg, #f5f1e6, #e6dcc4);
     display: flex;
-    background-image: url('../../assets/img/fondo2.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     justify-content: center;
     align-items: center;
     padding: 2rem;
+    padding-top: 85px;
 }
 
 .account-card {
     width: 100%;
     max-width: 500px;
     border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-    color: white;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #60502a;
+    box-shadow: 0 8px 32px rgba(0, 21, 38, 0.15);
+    color: #001526;
     animation: fadeInUp 0.8s ease-out;
+    overflow: hidden;
 }
+
 .account-header {
-    background-color: #2f302873;
+    background-color: #001526;
     color: white;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem !important;
+    border-top-right-radius: 1rem !important;
     padding: 2rem 1rem;
+    border-bottom: 2px solid #61460b;
 }
 
 .account-logo {
@@ -38,12 +36,14 @@
     border-radius: 50%;
     background-color: white;
     padding: 1rem;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(97, 70, 11, 0.3);
     transition: transform 0.3s ease;
+    border: 2px solid #61460b;
 }
 
 .account-logo:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(97, 70, 11, 0.5);
 }
 
 .animate-fade-in {
@@ -52,8 +52,29 @@
 
 .list-group-item {
     background-color: transparent;
-    border: none;
-    color: white;
+    border-bottom: 1px solid #f0e6d2;
+    color: #11353c;
+    padding: 1rem 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.list-group-item:hover {
+    background-color: #f8f4ea;
+}
+
+.list-group-item strong {
+    color: #001526;
+    min-width: 100px;
+    display: inline-block;
+}
+
+.list-group-item code {
+    background-color: #f0f3f5;
+    padding: 2px 5px;
+    border-radius: 3px;
+    color: #004950;
+    font-size: 0.9em;
+    word-break: break-all;
 }
 
 @keyframes fadeInUp {
@@ -64,5 +85,25 @@
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 576px) {
+    .account-container {
+        padding: 1rem;
+        padding-top: 85px;
+    }
+    
+    .account-card {
+        max-width: 100%;
+    }
+    
+    .account-logo {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .list-group-item {
+        padding: 0.75rem 1rem;
     }
 }

@@ -14,18 +14,18 @@ export const Navbar = () => {
     };
 
     return (
-        <nav className="navbar navbar-dark bg-dark fixed-top">
+        <nav className="navbar navbar-dark fixed-top" style={{ backgroundColor: '#001526' }}>
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">Almacén de Productos</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="offcanvas offcanvas-end text-bg-dark" tabIndex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-                    <div className="offcanvas-header">
+                    <div className="offcanvas-header" style={{ backgroundColor: '#001526' }}>
                         <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Menú</h5>
                         <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
-                    <div className="offcanvas-body d-flex flex-column justify-content-between" style={{ height: '100%' }}>
+                    <div className="offcanvas-body d-flex flex-column justify-content-between"  style={{ height: '100%', backgroundColor: '#001526'}}>
                         <ul className="navbar-nav pe-3">
                             <li className="nav-item">
 
