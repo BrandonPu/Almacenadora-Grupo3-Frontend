@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Input } from "./Input";
-import { useRegisterProducts } from "../shared/hooks";
+import { Input } from "../settings/Input";;
+import { useRegisterProducts } from "../../shared/hooks";
 
 export const RegisterProduct = ({ switchProductHandler }) => {
     const { registerProduct, isLoading } = useRegisterProducts();

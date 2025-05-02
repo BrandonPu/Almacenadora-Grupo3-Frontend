@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import { ProductTable } from "../../components/ProductTableView";
+import { ProductTable } from "../../components/product/ProductTableView";
 import { Navbar } from "../../components/navbars/Navbar";
-import { RegisterProduct } from "../../components/RegisterProduct";
+import { RegisterProduct } from "../../components/product/RegisterProduct";
 import "./ProductPage.css";
 
 export const ProductPage = () => {

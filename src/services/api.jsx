@@ -84,3 +84,45 @@ export const updateSuplier = async(id, data) => {
         }
     }
 }
+
+export const getProducts = async () => {
+    try {
+        const { data } = await apiClient.get("/products/productView");
+        return Array.isArray(data?.product) ? data.product : { error: true, message: "Error: la respuesta no es un array válido" };
+    } catch ({ response }) {
+        return { error: true, message: response?.data || "Error al obtener productos" };
+    }
+};
+
+export const registerProduct = async (productData) => {
+    try {
+        return await apiClient.post("/products/addProduct", productData);
+    } catch (error) {
+        return {
+            error: true,
+            message: error.response?.data || "Error al registrar el producto"
+        };
+    }
+};
+
+export const deleteProduct = async (id) => {
+    try {
+        const response  = await apiClient.delete(`/products/deleteProduct/${id}`, {
+            data: { confirmDeletion: true },
+        });
+        return response.data;
+    } catch (e) {
+        return { error: true, e }
+    }
+}
+
+export const updateProduct = async (id, data) => {
+    try {
+        return await apiClient.put(`/products/updateProduct/${id}`, data);
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }
+    }
+}
