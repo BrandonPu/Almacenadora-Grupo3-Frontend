@@ -1,52 +1,45 @@
-import React from "react";
-import { useState } from "react";
-import { ProductTable } from "../../components/ProductTableView";
+import React, { useState } from "react";
+import { ProductTable } from "../../components/product/ProductTableView";
 import { Navbar } from "../../components/navbars/Navbar";
-import { RegisterProduct } from "../../components/RegisterProduct";
+import { RegisterProduct } from "../../components/product/RegisterProduct";
+import { EntryProduct } from "../../components/product/EntryProduct"; 
 import "./ProductPage.css";
 
 export const ProductPage = () => {
-    const [showTable, setShowTable] = useState(false);
+    const [viewMode, setViewMode] = useState("table");
 
-    const handleToggleView = () => {
-        setShowTable((prev) => !prev);
+    const handleToggleView = (view) => {
+        setViewMode(view);
     };
 
     return (
         <>
             <Navbar />
+            <div style={{ paddingTop: '85px' }} />
             <div className="product-container">
-                <div className="product-content">
-                    <h1>Inventario de Productos</h1>
+                <h1>Inventario de Productos</h1>
 
-                    {showTable ? (
-                        <>
-                            <div className="registerproducts-container">
-                                <RegisterProduct onSuccess={handleToggleView} />
-                            </div>
-                            <div className="button-wrapper">
-                                <button
-                                    className="btn btn-secondary"
-                                    onClick={handleToggleView}
-                                >
-                                    Volver al inventario
-                                </button>
-                            </div>
-                        </>
-                    ) : (
-                        <>
-                            <ProductTable />
-                            <div className="button-wrapper">
-                                <button
-                                    className="btn btn-primary"
-                                    onClick={handleToggleView}
-                                >
-                                    Agregar nuevo producto
-                                </button>
-                            </div>
-                        </>
-                    )}
-                </div>
+                <button
+                    className="btn btn-primary mb-3"
+                    onClick={() => handleToggleView("table")}
+                >
+                    Ver inventario
+                </button>
+                <button
+                    className="btn btn-primary mb-3"
+                    onClick={() => handleToggleView("register")}
+                >
+                    Agregar nuevo producto
+                </button>
+                <button
+                    className="btn btn-primary mb-3"
+                    onClick={() => handleToggleView("entry")}
+                >
+                    Agregar stock a producto
+                </button>
+                {viewMode === "table" && <ProductTable />}
+                {viewMode === "register" && <RegisterProduct />}
+                {viewMode === "entry" && <EntryProduct />}
             </div>
         </>
     );
