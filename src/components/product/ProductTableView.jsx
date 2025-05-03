@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useProductView } from "../../shared/hooks";
 import { useDeleteProduct } from "../../shared/hooks";
 import { useUpdateProduct } from "../../shared/hooks";
 
 export const ProductTable = () => {
-    const { products, loading, error } = useProductView();
+    const [nameFilter, setNameFilter] = useState("");
+    const [entryDateFilter, setEntryDateFilter] = useState("");
+
+    const { products, loading, error, setFilters } = useProductView();
+
     const { deleteProduct } = useDeleteProduct();
     const { updateProduct } = useUpdateProduct();
 
-    if (loading) return <p>Cargando productos...</p>;
-    if (error) return <p>Error al obtener productos: {error}</p>;
+    useEffect(() => {
+        if (!nameFilter && !entryDateFilter) {
+            setFilters({});
+        } else {
+            setFilters({
+                nameProduct: nameFilter,
+                entryDate: entryDateFilter ? new Date(entryDateFilter).toISOString() : ""
+            });
+        }
+    }, [nameFilter, entryDateFilter, setFilters]);
 
     const handleDelete = async (id) => {
         const confirmed = window.confirm("¿Seguro que deseas eliminar este Producto?");
@@ -72,34 +84,56 @@ export const ProductTable = () => {
     return (
         <div>
             <h2>Lista de Productos</h2>
-            <table border="1">
-                <thead>
-                    <tr>
-                        {["ID", "Nombre", "Descripción", "Stock", "Precio", "Fecha de Entrada", "Fecha de Salida", "Eliminar", "Editar"].map((header, i) => (
-                            <th key={i}>{header}</th>
-                        ))}
-                    </tr>
-                </thead>
-                <tbody>
-                    {products.map((product) => (
-                        <tr key={product._id}>
-                            <td>{product._id}</td>
-                            <td>{product.nameProduct}</td>
-                            <td>{product.description}</td>
-                            <td>{product.stock}</td>
-                            <td>Q.{product.price}</td>
-                            <td>{new Date(product.entryDate).toLocaleDateString()}</td>
-                            <td>{new Date(product.expirationDate).toLocaleDateString()}</td>
-                            <td>
-                                <button onClick={() => handleDelete(product._id)}>Eliminar</button>
-                            </td>
-                            <td>
-                                <button onClick={() => handleEdit(product)}>Editar</button>
-                            </td>
+
+            <div style={{ marginBottom: "1rem" }}>
+                <input
+                    type="text"
+                    placeholder="Buscar por nombre"
+                    value={nameFilter}
+                    onChange={(e) => setNameFilter(e.target.value)}
+                    style={{ marginRight: "1rem" }}
+                />
+                <input
+                    type="date"
+                    value={entryDateFilter}
+                    onChange={(e) => setEntryDateFilter(e.target.value)}
+                />
+            </div>
+
+            {loading ? (
+                <p>Cargando productos...</p>
+            ) : error ? (
+                <p>Error al obtener productos: {error}</p>
+            ) : (
+                <table border="1">
+                    <thead>
+                        <tr>
+                            {["ID", "Nombre", "Descripción", "Stock", "Precio", "Fecha de Entrada", "Fecha de Salida", "Eliminar", "Editar"].map((header, i) => (
+                                <th key={i}>{header}</th>
+                            ))}
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {products.map((product) => (
+                            <tr key={product._id}>
+                                <td>{product._id}</td>
+                                <td>{product.nameProduct}</td>
+                                <td>{product.description}</td>
+                                <td>{product.stock}</td>
+                                <td>Q.{product.price}</td>
+                                <td>{new Date(product.entryDate).toISOString().split("T")[0]}</td>
+                                <td>{new Date(product.expirationDate).toISOString().split("T")[0]}</td>
+                                <td>
+                                    <button onClick={() => handleDelete(product._id)}>Eliminar</button>
+                                </td>
+                                <td>
+                                    <button onClick={() => handleEdit(product)}>Editar</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            )}
         </div>
     );
 };

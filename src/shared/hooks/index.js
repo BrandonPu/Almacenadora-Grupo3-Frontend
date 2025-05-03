@@ -7,3 +7,4 @@ export { useProductView } from "./useProductView";
 export { useRegisterProducts } from "./useRegisterProducts";
 export { useDeleteProduct } from "./useDeleteProduct";
 export { useUpdateProduct } from "./useUpdateProduct";
+export { useEntryProduct } from "./useEntryProduct";

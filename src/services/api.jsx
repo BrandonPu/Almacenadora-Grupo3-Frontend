@@ -85,14 +85,23 @@ export const updateSuplier = async(id, data) => {
     }
 }
 
-export const getProducts = async () => {
+export const getProducts = async ({ nameProduct = "", entryDate = "" } = {}) => {
     try {
-        const { data } = await apiClient.get("/products/productView");
-        return Array.isArray(data?.product) ? data.product : { error: true, message: "Error: la respuesta no es un array válido" };
-    } catch ({ response }) {
-        return { error: true, message: response?.data || "Error al obtener productos" };
+        const params = {};
+        if (nameProduct) params.nameProduct = nameProduct;
+        if (entryDate) params.entryDate = entryDate;
+
+        const { data } = await apiClient.get("/products/productView", { params });
+        return Array.isArray(data?.product)
+            ? data.product
+            : { error: true, message: "Error: la respuesta no es un array válido" };
+    } catch (e) {
+        return {
+            error: true,
+            e
+        }
     }
-};
+}
 
 export const registerProduct = async (productData) => {
     try {
@@ -126,3 +135,15 @@ export const updateProduct = async (id, data) => {
         }
     }
 }
+
+export const entryProduct = async (id, data) => {
+    try {
+        const response = await apiClient.put(`/products/productEntryRegistration/${id}`, data);
+        return response.data;
+    } catch (error) {
+        return {
+            error: true,
+            message: error.response?.data?.message || "Error al agregar stock"
+        };
+    }
+};
