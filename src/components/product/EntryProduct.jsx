@@ -43,37 +43,40 @@ export const EntryProduct = () => {
     };
 
     return (
-        <div>
-            <h2>Agregar Stock a Producto</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Seleccionar Producto:</label>
+        <div className="entryproducts-container">
+            <h2 className="entry-title">Agregar Stock a Producto</h2>
+            <form className="entry-form" onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label className="form-label">Seleccionar Producto:</label>
                     <select
+                        className="form-select"
                         value={selectedProductId}
                         onChange={(e) => setSelectedProductId(e.target.value)}
                     >
                         <option value="">-- Selecciona un producto --</option>
                         {products.map((product) => (
                             <option key={product._id} value={product._id}>
-                                {product.nameProduct}
+                                {product.nameProduct} (Stock actual: {product.stock})
                             </option>
                         ))}
                     </select>
                 </div>
 
-                <div>
-                    <label>Cantidad a agregar:</label>
+                <div className="form-group">
+                    <label className="form-label">Cantidad a agregar:</label>
                     <input
                         type="number"
+                        className="form-input"
                         value={quantity}
                         onChange={(e) => setQuantity(e.target.value)}
                         placeholder="Ej. 10"
+                        min="1"
                     />
                 </div>
 
-                <div>
-                    <button type="submit">Agregar Stock</button>
-                </div>
+                <button type="submit" className="submit-btn">
+                    Agregar Stock
+                </button>
             </form>
         </div>
     );

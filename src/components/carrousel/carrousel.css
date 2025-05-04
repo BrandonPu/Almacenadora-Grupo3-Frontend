@@ -1,8 +1,3 @@
-/* Estilos base */
-body, html {
-    overflow: hidden;
-}
-
 .carousel-wrapper {
     background-color: #f5f1e6; /* Beige claro */
     padding-top: 50px;

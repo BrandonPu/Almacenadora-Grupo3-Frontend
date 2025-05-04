@@ -8,36 +8,40 @@ import "./ProductPage.css";
 export const ProductPage = () => {
     const [viewMode, setViewMode] = useState("table");
 
-    const handleToggleView = (view) => {
-        setViewMode(view);
-    };
-
     return (
         <>
             <Navbar />
-            <div style={{ paddingTop: '85px' }} />
+            <div style={{ paddingTop: '15px' }} />
             <div className="product-container">
-                <h1>Inventario de Productos</h1>
+                <div className="product-header">
+                    <h1>Inventario de Productos</h1>
+                    <div className="button-group">
+                        <button
+                            className={`btn ${viewMode === "table" ? "btn-primary" : "btn-secondary"}`}
+                            onClick={() => setViewMode("table")}
+                        >
+                            Ver inventario
+                        </button>
+                        <button
+                            className={`btn ${viewMode === "register" ? "btn-primary" : "btn-secondary"}`}
+                            onClick={() => setViewMode("register")}
+                        >
+                            Agregar producto
+                        </button>
+                        <button
+                            className={`btn ${viewMode === "entry" ? "btn-primary" : "btn-secondary"}`}
+                            onClick={() => setViewMode("entry")}
+                        >
+                            Agregar stock
+                        </button>
+                    </div>
+                </div>
 
-                <button
-                    className="btn btn-primary mb-3"
-                    onClick={() => handleToggleView("table")}
-                >
-                    Ver inventario
-                </button>
-                <button
-                    className="btn btn-primary mb-3"
-                    onClick={() => handleToggleView("register")}
-                >
-                    Agregar nuevo producto
-                </button>
-                <button
-                    className="btn btn-primary mb-3"
-                    onClick={() => handleToggleView("entry")}
-                >
-                    Agregar stock a producto
-                </button>
-                {viewMode === "table" && <ProductTable />}
+                {viewMode === "table" && (
+                    <div className="product-table-container">
+                        <ProductTable />
+                    </div>
+                )}
                 {viewMode === "register" && <RegisterProduct />}
                 {viewMode === "entry" && <EntryProduct />}
             </div>
