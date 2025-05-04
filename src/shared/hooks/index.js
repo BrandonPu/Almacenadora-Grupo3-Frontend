@@ -8,3 +8,5 @@ export { useRegisterProducts } from "./useRegisterProducts";
 export { useDeleteProduct } from "./useDeleteProduct";
 export { useUpdateProduct } from "./useUpdateProduct";
 export { useEntryProduct } from "./useEntryProduct";
+export { useExitProduct } from "./useExitProduct";
+export { useMovementHistory } from "./useMovementHIstory";
