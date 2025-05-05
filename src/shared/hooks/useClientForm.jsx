@@ -1,0 +1,29 @@
+import { useState } from "react";
+import { saveClient as saveClientRequest} from "../../services";
+import toast from "react-hot-toast";
+
+export const useClientForm = () => {
+    const [isLoading, setIsLoading] = useState(false);
+    const token = localStorage.getItem('token');
+
+    const saveClient = async(name, surname , email,phoneNumber)=>{
+        setIsLoading(true)
+
+        const response = await saveClientRequest({name, surname , email,phoneNumber})
+        
+        setIsLoading(false)
+
+        if(response.error){
+            return toast.error(
+                response?.e?.response?.data?.message || 'Ocurrio un error al agregar Cliente'
+            )
+        }
+
+        toast.success('Cliente agregado correctamente')
+    }
+
+    return{
+        saveClient,
+        isLoading
+    }
+}

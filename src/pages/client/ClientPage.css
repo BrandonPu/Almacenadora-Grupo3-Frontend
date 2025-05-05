@@ -1,0 +1,283 @@
+/* Contenedor principal */
+.product-container {
+    padding: 80px 20px; /* Ajustado para dar más espacio lateral */
+    background-color: #f5f1e6;
+    font-family: 'Arial', sans-serif;
+    min-height: calc(100vh - 15px);
+    animation: fadeIn 0.8s ease-out;
+    margin-top: 20px; /* Ajuste de margen superior */
+}
+
+/* Encabezado y controles */
+.product-header {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.product-header h1 {
+    color: #001526;
+    font-size: 2.2rem;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* Grupo de botones */
+.button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px; /* Separar los botones de otros elementos */
+}
+
+/* Tabla de productos */
+.product-table-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.1);
+    overflow-x: auto;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* FORMULARIO REGISTRO - VERSIÓN AUMENTADA Y CENTRADA */
+.registerproducts-container, 
+.entryproducts-container {
+    max-width: 900px; /* Aumentado de 800px */
+    margin: 20px auto;
+    background: #11353c;
+    padding: 40px; /* Aumentado de 30px */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrado */
+    animation: fadeIn 0.8s ease-out;
+}
+
+.product-form {
+    width: 100%;
+    max-width: 700px; /* Ancho máximo para los inputs */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrado */
+}
+
+.product-form > div {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.product-form input {
+    padding: 15px 18px; /* Aumentado de 12px 15px */
+    border: 1px solid #60502a;
+    border-radius: 6px;
+    font-size: 1.1rem; /* Aumentado de 1rem */
+    background-color: #e0e0e0d3;
+    color: #001526;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-bottom: 20px; /* Aumentado de 15px */
+}
+
+.product-form button {
+    width: 60%; /* Ancho reducido para mejor centrado */
+    margin-top: 25px; /* Aumentado de 20px */
+    padding: 16px; /* Aumentado de 14px */
+    background-color: #004950;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.1rem; /* Aumentado de 1rem */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: center; /* Centrado */
+}
+
+/* Resto de estilos (se mantienen igual) */
+.product-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Separar la tabla de los elementos superiores */
+}
+
+.product-container th {
+    background-color: #001526;
+    color: white;
+    padding: 14px 16px;
+    text-align: left;
+    position: sticky;
+    top: 0;
+}
+
+.product-container td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0e6d2;
+    color: #11353c;
+}
+
+.product-container tr:hover {
+    background-color: #f8f4ea;
+}
+
+.action-btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.edit-btn {
+    background-color: #61460b;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #d32f2f;
+    color: white;
+    margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+    .product-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .button-group {
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .product-container th, 
+    .product-container td {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    /* Ajustes responsive para el formulario */
+    .registerproducts-container, 
+    .entryproducts-container {
+        padding: 30px 20px;
+    }
+
+    .product-form button {
+        width: 100%; /* En móviles ocupa todo el ancho */
+    }
+}
+
+/* Estilos específicos para EntryProduct */
+.entryproducts-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.1);
+    animation: fadeIn 0.8s ease-out;
+}
+
+.entry-title {
+    color: #001526;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #61460b;
+    padding-bottom: 10px;
+}
+
+.entry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    width: 100%;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 10px;
+    color: #11353c;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.form-select, .form-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #60502a;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    color: #001526;
+    transition: all 0.3s ease;
+}
+
+.form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23001526'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 15px;
+}
+
+.form-input:focus, .form-select:focus {
+    border-color: #004950;
+    outline: none;
+    background-color: #fff;
+    box-shadow: 0 0 0 2px rgba(0, 73, 80, 0.2);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background-color: #004950;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #11353c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .entryproducts-container {
+        padding: 30px 20px;
+        margin: 20px auto;
+    }
+    
+    .entry-title {
+        font-size: 1.5rem;
+    }
+    
+    .form-label {
+        font-size: 1rem;
+    }
+    
+    .form-select, .form-input {
+        padding: 12px;
+    }
+}
