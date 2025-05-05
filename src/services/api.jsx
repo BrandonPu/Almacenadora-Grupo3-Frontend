@@ -229,3 +229,62 @@ export const getMovementHistory = async () => {
         };
     }
 };
+
+export const expirationProduct = async (month = 1) => {
+    try {
+        const { data } = await apiClient.get(`/products/productExpiringSoon?month=${month}`);
+        if (Array.isArray(data)) {
+            return data;
+        }
+        if (Array.isArray(data.products)) {
+            return data.products;
+        }
+        return {
+            error: true,
+            message: "Error: la respuesta no contiene un array de productos"
+        };
+    } catch (error) {
+        return {
+            error: true,
+            message: error.response?.data?.message || "Error al obtener productos por caducar"
+        };
+    }
+};
+
+export const getProductMovementsSummary = async (startDate, endDate) => {
+    try {
+        const response = await apiClient.get("/products/productMovementsSummary", {
+            params: { startDate, endDate }
+        });
+        return response.data;
+    } catch (error) {
+        return {
+            error: true,
+            message: error.response?.data?.message || "Error al obtener resumen de movimientos"
+        };
+    }
+};
+
+export const getMonthlyActivityStats = async () => {
+    try {
+        const response = await apiClient.get("/products/monthlyActivityStats");
+        return response.data;
+    } catch (error) {
+        return {
+            error: true,
+            message: error.response?.data?.message || "Error al obtener estadísticas mensuales"
+        };
+    }
+};
+
+export const getMostActiveProducts = async () => {
+    try {
+        const response = await apiClient.get("/products/mostActiveProducts");
+        return response.data;
+    } catch (error) {
+        return {
+            error: true,
+            message: error.response?.data?.message || "Error al obtener productos más activos"
+        };
+    }
+};
