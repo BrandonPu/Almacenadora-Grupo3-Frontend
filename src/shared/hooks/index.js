@@ -18,3 +18,9 @@ export { useExpirationProduct } from "./useExpirationProduct";
 export { useProductMovementsSummary } from "./useProductMovementsSummary";
 export { useMonthlyActivityStats } from "./useMonthlyActivityStats";
 export { useMostActiveProduct } from "./useMostActiveProducts";
+export { useClientPage } from "./useClientsPage";
+export { useClientForm } from "./useClientForm";
+export {useClientDelete} from "./useClientDelete";
+export {useClientUpdate} from "./useClientUpdate";
+export {useClientFrecuentPage} from "./useClientFrecuentPage";
+export {useClientFrecuentForm} from "./useClientFrecuentForm"

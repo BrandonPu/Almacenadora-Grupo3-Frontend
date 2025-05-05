@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { data } from 'react-router-dom';
 
 const apiClient = axios.create({
     baseURL: "http://127.0.0.1:3001/almacenadora/v1",
@@ -288,3 +289,68 @@ export const getMostActiveProducts = async () => {
         };
     }
 };
+export const clientView = async () => {
+    try {
+        return await apiClient.get('/frecuentClients/clientView');
+    } catch (e) {
+        return{
+            error: true ,
+            e
+        }
+    }
+}
+
+export const saveClient = async(data) => {
+    try {
+        return await apiClient.post('/frecuentClients/addClient',data)
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }
+    }
+}
+
+export const deleteClient = async (id) => {
+    try {
+      const response = await apiClient.delete(`/frecuentClients/deleteClient/${id}`, {
+        data: { confirmDeletion: true },
+      });
+      return response.data;
+    } catch (e) {
+      return { error: true, e }
+    }
+}
+
+export const updateClient = async(id, data) => {
+    try {
+        return await apiClient.put(`/frecuentClients/updateClient/${id}`, data)
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }
+    }
+}
+
+export const clientFrecuentView = async () => {
+    try {
+        return await apiClient.get('/frecuentClients/frecuentClientView');
+    } catch (e) {
+        return{
+            error: true ,
+            e
+        }
+    }
+}
+
+export const clientFrecuentSave = async (data) => {
+    try {
+        return await apiClient.post('/frecuentClients/addFrecuentClient', data)
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }
+    }
+}
