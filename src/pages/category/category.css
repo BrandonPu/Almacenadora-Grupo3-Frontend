@@ -1,0 +1,328 @@
+/* Contenedor principal */
+.category-container {
+    padding: 80px;
+    background-color: #f5f1e6;
+    font-family: 'Arial', sans-serif;
+    min-height: calc(100vh - 15px); /* Ajustado para el navbar */
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Encabezado y controles */
+.category-header {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 25px 30px;
+    background-color: #001526;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.9);
+}
+
+.category-header h1 {
+    color: #f5f1e6; /* Cambiado a claro para contraste */
+    font-size: 2.2rem;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* Grupo de botones */
+.button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #61460b;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #004950;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Tabla de categorías */
+.category-table-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.1);
+    overflow-x: auto;
+    padding: 20px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Estilos para la tabla */
+.category-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.category-table-container th {
+    background-color: #001526;
+    color: white;
+    padding: 14px 16px;
+    text-align: left;
+    position: sticky;
+    top: 0;
+}
+
+.category-table-container td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0e6d2;
+    color: #11353c;
+}
+
+.category-table-container tr:hover {
+    background-color: #f8f4ea;
+}
+
+/* Botones de acción */
+.action-btn {
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-right: 8px;
+}
+
+.edit-btn {
+    background-color: #61460b;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #d32f2f;
+    color: white;
+}
+
+/* Formulario de agregar categoría */
+.add-category-container {
+    max-width: 900px;
+    margin: 20px auto;
+    background: #11353c;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.add-category-container h2 {
+    color: #f5f1e6;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+.category-form {
+    width: 100%;
+    max-width: 700px;
+}
+
+.category-form > div {
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.category-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #f5f1e6;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.category-form input {
+    width: 100%;
+    padding: 15px 18px;
+    border: 1px solid #60502a;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    background-color: #e0e0e0d3;
+    color: #001526;
+    transition: all 0.3s ease;
+}
+
+.category-form button[type="submit"] {
+    width: 60%;
+    padding: 16px;
+    background-color: #004950;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .category-container {
+        padding: 20px;
+        min-height: calc(100vh - 75px);
+    }
+    
+    .category-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    
+    .button-group {
+        width: 100%;
+        margin-top: 15px;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    .add-category-container {
+        padding: 30px 20px;
+    }
+    
+    .category-form button[type="submit"] {
+        width: 100%;
+    }
+}
+
+/* Contenedor principal */
+.registerCategories-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #11353c;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.15);
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Formulario */
+.Category-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Contenedor de inputs */
+.Category-form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Estilos para el componente Input (deberás aplicarlos también en tu componente Input) */
+.Category-form .input-container {
+    position: relative;
+    width: 100%;
+}
+
+.Category-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #f5f1e6;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.Category-form input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #60502a;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #e0e0e0d3;
+    color: #001526;
+    transition: all 0.3s ease;
+}
+
+.Category-form .error-message {
+    color: #ff6b6b;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    display: block;
+}
+
+/* Botón de registro */
+.Category-form button {
+    padding: 16px;
+    background-color: #61460b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.Category-form button:hover:not(:disabled) {
+    background-color: #756035;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .registerCategories-container {
+        padding: 30px 20px;
+        margin: 20px auto;
+    }
+    
+    .Category-form {
+        gap: 20px;
+    }
+    
+    .Category-form > div {
+        gap: 20px;
+    }
+    
+    .Category-form input {
+        padding: 12px 15px;
+    }
+    
+    .Category-form button {
+        padding: 14px;
+    }
+}

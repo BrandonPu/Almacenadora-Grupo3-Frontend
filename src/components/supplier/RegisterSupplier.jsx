@@ -1,15 +1,9 @@
-// formulario para crear o editar
-import { useState } from "react";
-import { Input } from "../settings/Input";
-import { useProviderForm } from "../../shared/hooks";
-import { 
-    validateNotEmpty,
-    validateNotEmptyMessage 
-} from "../../shared/validators";
+import { useState } from 'react';
+import { useRegisterSupplier } from '../../shared/hooks/useRegisterSupplier';
+import { Input } from '../settings/Input';
 
-
-export const SaveSuplier = ({ switchAuthHandler }) => {
-    const { saveSuplier, isLoading } = useProviderForm();
+export const RegisterSuppliers = () => {
+    const { saveSupplier, isLoading } = useRegisterSupplier();
 
     const [formState, setFormState] = useState({
         nameSupplier: {
@@ -20,19 +14,19 @@ export const SaveSuplier = ({ switchAuthHandler }) => {
         emailSupplier: {
             value: '',
             isValid: false,
-            showError: false
+            showError: false,
         },
-        phoneNumber:{
-            value: '',
+        phoneNumber: {
+            value: "",
             isValid: false,
             showError: false
         },
         nameProduct: {
-            value: '',
+            value: "",
             isValid: false,
             showError: false
-        }
-    })
+        },
+    });
 
     const handleInputValueChange = (value, field) => {
         setFormState((prevState) => ({
@@ -41,27 +35,11 @@ export const SaveSuplier = ({ switchAuthHandler }) => {
                 ...prevState[field],
                 value
             }
-        }));
+        }))
     }
 
-    const handleInputValidationOnBlur = (value, field) =>{
-        let isValid = false;
-        switch (field) {
-            case 'nameSupplier':
-                isValid = validateNotEmpty(value)
-                break;
-            case 'emailSupplier':
-                isValid = validateNotEmpty(value)
-                break;
-            case 'phoneNumber':
-                isValid = validateNotEmpty(value)
-                break;
-            case 'nameProduct':
-                isValid = validateNotEmpty(value)
-                break;
-            default:
-                break;
-        }
+    const handleInputValidationOnBlur = (value, field) => {
+        let isValid = value.trim() !== '';
         setFormState((prevState) => ({
             ...prevState,
             [field]: {
@@ -69,24 +47,25 @@ export const SaveSuplier = ({ switchAuthHandler }) => {
                 isValid,
                 showError: !isValid
             }
-        }));   
-    }
+        }));
+    };
 
-    const handleAgregar = (event) => {
-        event.preventDefault();
-        saveSuplier(formState.nameSupplier.value,formState.emailSupplier.value,formState.phoneNumber.value,formState.nameProduct.value)
+    const handleRegister = (event) => {
+        event.preventDefault()
+        saveSupplier(formState.nameSupplier.value, formState.emailSupplier.value, formState.phoneNumber.value, formState.nameProduct.value)
     }
 
     const isSubmitButtonDisabled = isLoading ||
         !formState.nameSupplier.isValid ||
-        !formState.emailSupplier.isValid||
-        !formState.phoneNumber.isValid||
+        !formState.emailSupplier.isValid ||
+        !formState.phoneNumber.isValid ||
         !formState.nameProduct.isValid;
+
     return (
-        <div className="register">
-            <h2>Registrar Proveedor</h2>
-            <form >
-                <Input                    
+        <div className="registerSupplier-container">
+            <form className='supplier-form'>
+                <div>
+                <Input
                     field='nameSupplier'
                     label='NameSupplier'
                     value={formState.nameSupplier.value}
@@ -94,7 +73,6 @@ export const SaveSuplier = ({ switchAuthHandler }) => {
                     type='text'
                     onBlurHandler={handleInputValidationOnBlur}
                     showErrorMessage={formState.nameSupplier.showError}
-                    validationMessage={validateNotEmptyMessage}
                 />
                 <Input
                     field='emailSupplier'
@@ -104,7 +82,6 @@ export const SaveSuplier = ({ switchAuthHandler }) => {
                     type='text'
                     onBlurHandler={handleInputValidationOnBlur}
                     showErrorMessage={formState.emailSupplier.showError}
-                    validationMessage={validateNotEmptyMessage}
                 />
                 <Input
                     field='phoneNumber'
@@ -114,7 +91,6 @@ export const SaveSuplier = ({ switchAuthHandler }) => {
                     type='text'
                     onBlurHandler={handleInputValidationOnBlur}
                     showErrorMessage={formState.phoneNumber.showError}
-                    validationMessage={validateNotEmptyMessage}
                 />
                 <Input
                     field='nameProduct'
@@ -124,12 +100,13 @@ export const SaveSuplier = ({ switchAuthHandler }) => {
                     type='text'
                     onBlurHandler={handleInputValidationOnBlur}
                     showErrorMessage={formState.nameProduct.showError}
-                    validationMessage={validateNotEmptyMessage}
                 />
-                <button onClick={handleAgregar} disabled={isSubmitButtonDisabled}>
-                    Agregar
+                </div>
+
+                <button onClick={handleRegister} disabled={isSubmitButtonDisabled}>
+                    Registrar Proveedor
                 </button>
             </form>
         </div>
-    )
-}
+    );
+};

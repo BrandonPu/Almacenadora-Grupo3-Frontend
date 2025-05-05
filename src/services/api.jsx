@@ -41,24 +41,31 @@ export const register = async(data) =>{
     }
 }
 
-export const suplierView = async () => {
+export const suplierView = async ({ nameSupplier = "", entryDate = "" } = {}) => {
     try {
-        return await apiClient.get('/suppliers/viewSuplier');
-    } catch (e) {
-        return {
-            error: true,
-            e
+            const params = {};
+            if (nameSupplier) params.nameSupplier = nameSupplier;
+            if (entryDate) params.entryDate = entryDate;
+    
+            const { data } = await apiClient.get('/suppliers/viewSuplier', { params });
+            return Array.isArray(data?.suppliers)
+                ? data.suppliers
+                : { error: true, message: "Error: la respuesta no es un array válido" };
+        } catch (e) {
+            return {
+                error: true,
+                e
+            }
         }
-    } 
 }
 
-export const saveSuplier = async (data) => {
+export const addSupplier = async (data) => {
     try {
         return await apiClient.post('/suppliers/addSuplier', data)
-    } catch (e) {
+    } catch (error) {
         return {
             error: true,
-            e
+            message: error.response?.data || "Error al registrar al Proveedor"
         }
     }
 }
@@ -145,5 +152,56 @@ export const entryProduct = async (id, data) => {
             error: true,
             message: error.response?.data?.message || "Error al agregar stock"
         };
+    }
+};
+
+export const getCategories = async ({ nameCategory = "", entryDate = ""} = {}) => {
+    try {
+        const params = {};
+        if (nameCategory) params.nameCategory = nameCategory;
+        if (entryDate) params.entryDate = entryDate;
+
+        const { data } = await apiClient.get("/categories/", { params });
+        return Array.isArray(data?.category)
+            ? data.category
+            : { error: true, message: "Error: la respuesta no es un array válido" };
+    } catch (e) {
+        return {
+            error: true,
+            e
+        }
+    }
+};
+
+export const addCategory = async (categoryData) => {
+    try {
+        return await apiClient.post('/categories/', categoryData);
+    } catch (error) {
+        return {
+            error: true, 
+            message: error.response?.data?.message || "Error al registrar la categoria"
+        };
+    }
+};
+
+export const updateCategory = async (id, data) => {
+    try {
+        return await apiClient.put(`/categories/${id}`, data);
+    } catch (error) {
+        return {
+            error: true,
+            message: error.response?.data?.message || error.message
+        };
+    }
+};
+
+export const deleteCategory = async (id) => {
+    try {
+        const response  = await apiClient.delete(`/categories/${id}`, {
+            data: { confirmDeletion: true },
+        });
+        return response.data;
+    } catch (e) {
+        return { error: true, e }
     }
 };

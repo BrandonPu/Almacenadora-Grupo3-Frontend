@@ -1,10 +1,14 @@
 export { useLogin } from "./useLogin";
 export { useRegister} from "./useRegister";
-export { useProviderPage } from "./useProviderPage";
-export { useProviderForm } from "./useProviderForm"
+export { useSupplierView } from "./useSuppliersView";
+export { useRegisterSupplier } from "./useRegisterSupplier"
 export { useDeleteSupplier } from "./useDeleteSupplier";
 export { useProductView } from "./useProductView";
 export { useRegisterProducts } from "./useRegisterProducts";
 export { useDeleteProduct } from "./useDeleteProduct";
 export { useUpdateProduct } from "./useUpdateProduct";
 export { useEntryProduct } from "./useEntryProduct";
+export { useCategoryView } from "./useCategoriesView";
+export { useRegisterCategory } from "./useRegisterCategories";
+export { useUpdateCategory } from "./useUpdateCategories";
+export { useDeleteCategory } from "./useDeleteCategories";

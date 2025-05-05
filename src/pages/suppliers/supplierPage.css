@@ -1,0 +1,276 @@
+/* Estilos generales del contenedor */
+.supplier-container {
+    padding: 80px;
+    background-color: #f5f1e6;
+    font-family: 'Arial', sans-serif;
+    min-height: calc(100vh - 15px); /* Ajustado para el navbar */
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Encabezado */
+.supplier-header {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 25px 30px;
+    background-color: #001526;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.9);
+}
+
+.supplier-header h1 {
+    color: #f5f1e6; /* Cambiado a claro para contraste */
+    font-size: 2.2rem;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* Grupo de botones */
+.button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #61460b;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #004950;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Contenedor de la tabla */
+.supplier-table-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.1);
+    overflow-x: auto;
+    padding: 20px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Estilos de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #001526;
+    color: white;
+    padding: 14px 16px;
+    text-align: left;
+    position: sticky;
+    top: 0;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Acciones (botones Editar/Eliminar) */
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 13px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Mensajes de error */
+.error {
+    color: #d32f2f;
+    font-weight: 500;
+    padding: 10px 0;
+}
+
+/* Filtros */
+.filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.filters input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.filters input[type="text"] {
+    min-width: 250px;
+}
+
+.filters input:focus {
+    outline: none;
+    border-color: #004950;
+    box-shadow: 0 0 0 2px rgba(0, 73, 80, 0.1);
+}
+
+/* Formulario de registro */
+/* Contenedor principal del formulario */
+.registerSupplier-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #11353c;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.15);
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Título del formulario (si lo agregas) */
+.registerSupplier-container h2 {
+    color: #001526;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #004950;
+}
+
+/* Estructura del formulario */
+.supplier-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Grupo de inputs */
+.supplier-form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Estilos para los grupos de input */
+.supplier-form input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #60502a;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #e0e0e0d3;
+    color: #001526;
+    transition: all 0.3s ease;
+}
+
+.input-group label {
+    font-weight: 500;
+    color: #11353c;
+    font-size: 0.95rem;
+}
+
+.input-group input {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #004950;
+    box-shadow: 0 0 0 2px rgba(0, 73, 80, 0.1);
+}
+
+/* Mensajes de error */
+.error-message {
+    color: #d32f2f;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+/* Botón de submit */
+.supplier-form button {
+    padding: 16px;
+    background-color: #61460b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.supplier-form button:hover:not(:disabled) {
+    background-color: #756035;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.supplier-form button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Estado de carga */
+.supplier-form button.loading {
+    position: relative;
+    color: transparent;
+}
+
+.supplier-form button.loading::after {
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+    left: calc(50% - 0.5rem);
+    top: calc(50% - 0.5rem);
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

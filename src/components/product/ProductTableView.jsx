@@ -84,7 +84,6 @@ export const ProductTable = () => {
     return (
         <div>
             <h2>Lista de Productos</h2>
-
             <div style={{ marginBottom: "1rem" }}>
                 <input
                     type="text"
