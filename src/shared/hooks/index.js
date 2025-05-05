@@ -14,4 +14,7 @@ export { useUpdateCategory } from "./useUpdateCategories";
 export { useDeleteCategory } from "./useDeleteCategories";
 export { useExitProduct } from "./useExitProduct";
 export { useMovementHistory } from "./useMovementHIstory";
-
+export { useExpirationProduct } from "./useExpirationProduct";
+export { useProductMovementsSummary } from "./useProductMovementsSummary";
+export { useMonthlyActivityStats } from "./useMonthlyActivityStats";
+export { useMostActiveProduct } from "./useMostActiveProducts";

@@ -4,6 +4,7 @@ import { ProductPage } from "./pages/product"
 import { Account } from "./pages/accounts"
 import { CategoryPage } from "./pages/category";
 import { SupplierPage } from "./pages/suppliers/SupplierPage";
+import { ReportPage } from "./pages/reports"
 
 const routes = [
     { path: "/", element: <Auth /> },
@@ -12,6 +13,7 @@ const routes = [
     { path: "/account", element: <Account/>},
     { path: "/categoriesPage", element: <CategoryPage/>},
     { path: "/supplierPage", element: <SupplierPage/>},
+    { path: "/reportPage", element: <ReportPage/>}
 ]
 
 export default routes
