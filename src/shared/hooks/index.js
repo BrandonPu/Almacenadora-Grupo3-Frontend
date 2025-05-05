@@ -12,3 +12,6 @@ export { useCategoryView } from "./useCategoriesView";
 export { useRegisterCategory } from "./useRegisterCategories";
 export { useUpdateCategory } from "./useUpdateCategories";
 export { useDeleteCategory } from "./useDeleteCategories";
+export { useExitProduct } from "./useExitProduct";
+export { useMovementHistory } from "./useMovementHIstory";
+

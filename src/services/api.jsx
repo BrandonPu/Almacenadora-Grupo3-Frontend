@@ -204,4 +204,28 @@ export const deleteCategory = async (id) => {
     } catch (e) {
         return { error: true, e }
     }
+}
+
+export const exitProduct = async (id, data) => {
+    try {
+        const response = await apiClient.post(`/products/productExitRegistration/${id}`, data);
+        return response.data;
+    } catch (error) {
+        return {
+            error: true,
+            message: error.response?.data?.message || "Error al registrar salida de stock"
+        };
+    }
+};
+
+export const getMovementHistory = async () => {
+    try {
+        const response = await apiClient.get("/products/historyProductView");
+        return response.data;
+    } catch (error) {
+        return {
+            error: true,
+            message: error.response?.data?.message || "Error al obtener el historial de movimientos"
+        };
+    }
 };
