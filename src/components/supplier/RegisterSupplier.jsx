@@ -1,112 +1,89 @@
 import { useState } from 'react';
-import { useRegisterSupplier } from '../../shared/hooks/useRegisterSupplier';
 import { Input } from '../settings/Input';
+import { useRegisterSupplier } from '../../shared/hooks';
 
 export const RegisterSuppliers = () => {
-    const { saveSupplier, isLoading } = useRegisterSupplier();
+    const { registerSupplier, isLoading, error, success } = useRegisterSupplier();
 
-    const [formState, setFormState] = useState({
-        nameSupplier: {
-            value: '',
-            isValid: false,
-            showError: false
-        },
-        emailSupplier: {
-            value: '',
-            isValid: false,
-            showError: false,
-        },
-        phoneNumber: {
-            value: "",
-            isValid: false,
-            showError: false
-        },
-        nameProduct: {
-            value: "",
-            isValid: false,
-            showError: false
-        },
+    const [form, setForm] = useState({
+        nameSupplier: '',
+        emailSupplier: '',
+        phoneNumber: "",
+        nameProduct: ''
     });
 
-    const handleInputValueChange = (value, field) => {
-        setFormState((prevState) => ({
-            ...prevState,
-            [field]: {
-                ...prevState[field],
-                value
-            }
-        }))
-    }
-
-    const handleInputValidationOnBlur = (value, field) => {
-        let isValid = value.trim() !== '';
-        setFormState((prevState) => ({
-            ...prevState,
-            [field]: {
-                ...prevState[field],
-                isValid,
-                showError: !isValid
-            }
-        }));
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setForm({ ...form, [name]: value });
     };
 
-    const handleRegister = (event) => {
-        event.preventDefault()
-        saveSupplier(formState.nameSupplier.value, formState.emailSupplier.value, formState.phoneNumber.value, formState.nameProduct.value)
-    }
-
-    const isSubmitButtonDisabled = isLoading ||
-        !formState.nameSupplier.isValid ||
-        !formState.emailSupplier.isValid ||
-        !formState.phoneNumber.isValid ||
-        !formState.nameProduct.isValid;
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await registerSupplier(form);
+    };
 
     return (
         <div className="registerSupplier-container">
-            <form className='supplier-form'>
+            <form onSubmit={handleSubmit} className="supplier-form">
                 <div>
-                <Input
-                    field='nameSupplier'
-                    label='NameSupplier'
-                    value={formState.nameSupplier.value}
-                    onChangeHandler={handleInputValueChange}
-                    type='text'
-                    onBlurHandler={handleInputValidationOnBlur}
-                    showErrorMessage={formState.nameSupplier.showError}
+                <input
+                    type="text"
+                    name="nameSupplier"
+                    placeholder="Nombre del proveedor"
+                    value={form.nameSupplier}
+                    onChange={handleChange}
+                    className="w-full border p-2 rounded"
+                    required
                 />
-                <Input
-                    field='emailSupplier'
-                    label='EmailSupplier'
-                    value={formState.emailSupplier.value}
-                    onChangeHandler={handleInputValueChange}
-                    type='text'
-                    onBlurHandler={handleInputValidationOnBlur}
-                    showErrorMessage={formState.emailSupplier.showError}
+                <input
+                    type="email"
+                    name="emailSupplier"
+                    placeholder="Correo del proveedor"
+                    value={form.emailSupplier}
+                    onChange={handleChange}
+                    className="w-full border p-2 rounded"
+                    required
                 />
-                <Input
-                    field='phoneNumber'
-                    label='PhoneNumber'
-                    value={formState.phoneNumber.value}
-                    onChangeHandler={handleInputValueChange}
-                    type='text'
-                    onBlurHandler={handleInputValidationOnBlur}
-                    showErrorMessage={formState.phoneNumber.showError}
+                <input
+                    type="text"
+                    name="phoneNumber"
+                    placeholder="Teléfono"
+                    value={form.phoneNumber}
+                    onChange={handleChange}
+                    className="w-full border p-2 rounded"
+                    required
                 />
-                <Input
-                    field='nameProduct'
-                    label='NameProduct'
-                    value={formState.nameProduct.value}
-                    onChangeHandler={handleInputValueChange}
-                    type='text'
-                    onBlurHandler={handleInputValidationOnBlur}
-                    showErrorMessage={formState.nameProduct.showError}
+                <input
+                    type="text"
+                    name="nameProduct"
+                    placeholder="Nombre del producto que abastece"
+                    value={form.nameProduct}
+                    onChange={handleChange}
+                    className="w-full border p-2 rounded"
+                    required
                 />
                 </div>
-
-                <button onClick={handleRegister} disabled={isSubmitButtonDisabled}>
-                    Registrar Proveedor
+                <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+                >
+                    {isLoading ? 'Registrando...' : 'Registrar'}
                 </button>
             </form>
+
+            {error && (
+                <p className="text-red-600 mt-2 text-center">
+                    {typeof error === 'string'
+                        ? error
+                        : error?.msg || 'Ocurrió un error al registrar'}
+                </p>
+            )}
+            {success && (
+                <p className="text-green-600 mt-2 text-center">
+                    Proveedor registrado exitosamente
+                </p>
+            )}
         </div>
     );
 };

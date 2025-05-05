@@ -1,35 +1,30 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { addSupplier as addSupplierRequest } from "../../services";
-import toast from "react-hot-toast";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { addSupplier } from '../../services';
+import toast from 'react-hot-toast';
 
 export const useRegisterSupplier = () => {
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
-    const addSupplier = async (nameSupplier, emailSupplier, phoneNumber, nameProduct) => {
+    const registerSupplier = async (supplierData) => {
         setIsLoading(true);
-        
-        const response = await addSupplierRequest({ 
-            nameSupplier, 
-            emailSupplier, 
-            phoneNumber, 
-            nameProduct 
-        });
-        
+
+        const response = await addSupplier(supplierData);
+
         setIsLoading(false);
 
-        if(response.error){
-            return toast.error(response.error?.response?.data || 'Error al registrar proveedor');
+        if(response.error) {
+            return toast.error(response.error?.response?.data || 'Error al registrar al proveedor');
         }
-
-        toast.success('Proveedor registrado correctamente');
+        toast.success("Categoria registrada correctamente");
         navigate('/supplierPage', { replace: true });
-        window.location.reload();
+        window.location.reload()
+
     };
 
     return {
-        addSupplier,
+        registerSupplier,
         isLoading
     };
 };

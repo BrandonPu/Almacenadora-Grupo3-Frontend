@@ -1,27 +1,13 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import { useSupplierView } from '../../shared/hooks/useSuppliersView';
 import { useDeleteSupplier } from '../../shared/hooks/useDeleteSupplier';
 import { useUpdateSupplier } from '../../shared/hooks/useUpdateSupplier';
 
 export const SupplierTable = () => {
-    const [nameFilter, setNameFilter] = useState('');
-    const [entryDateFilter, setEntryDateFilter] = useState("");
-
-    const { suppliers, loading, error, setFilters } = useSupplierView();
+    const { suppliers, loading, error } = useSupplierView();
 
     const { deleteSupplier } = useDeleteSupplier();
     const { updateSupplier } = useUpdateSupplier();
-
-    useEffect(() => {
-        if (!nameFilter && !entryDateFilter) {
-            setFilters({})
-        }else{
-            setFilters({
-                nameSupplier: nameFilter,
-                entryDate: entryDateFilter ? new Date(entryDateFilter).toISOString() : ""
-            })
-        }
-    }, [nameFilter, entryDateFilter, setFilters]);
 
     const handleDelete = async (id) => {
         const confirmed = window.confirm("¿Seguro que desea eliminar este proveedor?");
@@ -41,51 +27,47 @@ export const SupplierTable = () => {
             _id,
             nameSupplier: oldName,
             emailSupplier: oldEmail,
-            phoneNumber: oldNumber
+            phoneNumber: oldNumber,
+            nameProduct: oldProduct
         } = supplier;
-
-        const nameSupplier = prompt("Nuevo nombre del Proveedor:", oldName);
-        const emailSupplier = prompt("Nuevo Email del Proveedor:", oldEmail);
-        const phoneNumber = prompt("Nuevo Numero del Proveedor:", oldNumber);
-
-        if (!nameSupplier || !emailSupplier || phoneNumber) {
+    
+        const nameSupplier = prompt("Nuevo nombre del Proveedor:", oldName)?.trim();
+        const emailSupplier = prompt("Nuevo Email del Proveedor:", oldEmail)?.trim();
+        const phoneNumber = prompt("Nuevo Número del Proveedor:", oldNumber)?.trim();
+        const nameProduct = prompt("Nuevo Nombre del Producto que abastece:", oldProduct || "")?.trim();
+    
+        // Validación: todos los campos deben estar presentes
+        if (!nameSupplier || !emailSupplier || !phoneNumber || !nameProduct) {
             alert("Todos los campos son requeridos");
             return;
         }
-
+    
         const data = {
             nameSupplier,
             emailSupplier,
-            phoneNumber
-        }
-
-        const response = await updateSupplier(_id, data);
-
-        if (response.error) {
-            alert("Error al actualizar el Proveedor");
-        } else {
-            alert("Proveedor actualizado correctamente");
-            window.location.reload();
+            phoneNumber,
+            nameProduct
+        };
+    
+        try {
+            const response = await updateSupplier(_id, data);
+    
+            if (response.error) {
+                alert(`Error al actualizar el Proveedor: ${response.message || "Error desconocido"}`);
+            } else {
+                alert("Proveedor actualizado correctamente");
+                window.location.reload();
+            }
+        } catch (err) {
+            console.error("Error en handleEdit:", err);
+            alert("Ocurrió un error inesperado al actualizar el proveedor.");
         }
     };
 
     return (
         <div>
             <h2>Lista de Proveedores</h2>
-            <div style={{ marginBottom : "1rem" }}>
-                <input
-                    type="text"
-                    placeholder="Buscar por nombre"
-                    value={nameFilter}
-                    onChange={(e) => setNameFilter(e.target.value)}
-                    style={{ marginRight: "1rem" }}
-                />
-                <input
-                    type="date"
-                    value={entryDateFilter}
-                    onChange={(e) => setEntryDateFilter(e.target.value)}
-                />
-            </div>
+
 
             {loading && <p>Cargando proveedores...</p>}
             {error && <p className="error">Error: {error}</p>}

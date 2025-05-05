@@ -1,29 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useCategoryView } from "../../shared/hooks/useCategoriesView";
 import { useDeleteCategory } from "../../shared/hooks/useDeleteCategories";
 import { useUpdateCategory } from "../../shared/hooks/useUpdateCategories";
 
 export const CategoryTable = () => {
-    const [nameFilter, setNameFilter] = useState("");
-    const [entryDateFilter, setEntryDateFilter] = useState("");
-
-    const { categories, loading, error, setFilters } = useCategoryView();
+    const { categories, loading, error } = useCategoryView();
 
     const { deleteCategory } = useDeleteCategory();
     const { updateCategory } = useUpdateCategory();
-
-    useEffect(() => {
-            if (!nameFilter && !entryDateFilter) {
-                setFilters({});
-            } else {
-                setFilters({
-                    nameCategory: nameFilter,
-                    entryDate: entryDateFilter ? new Date(entryDateFilter).toISOString() : ""
-                });
-            }
-        }, [nameFilter, entryDateFilter, setFilters]);
     
-
     const handleDelete = async (id) => {
         const confirmed = window.confirm("¿Seguro que deseas eliminar esta categoría?");
         if (!confirmed) return;
@@ -71,22 +56,6 @@ export const CategoryTable = () => {
     return (
         <div>
             <h2>Lista de Categorías</h2>
-            
-            <div style={{ marginBottom: "1rem" }}>
-                <input
-                    type="text"
-                    placeholder="Buscar por nombre"
-                    value={nameFilter}
-                    onChange={(e) => setNameFilter(e.target.value)}
-                    style={{ marginRight: "1rem" }}
-                />
-                <input
-                    type="date"
-                    value={entryDateFilter}
-                    onChange={(e) => setEntryDateFilter(e.target.value)}
-                />
-            </div>
-
             {loading ? (
                 <p>Cargando categorías...</p>
             ) : error ? (
