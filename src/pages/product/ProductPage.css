@@ -253,7 +253,7 @@
 }
 
 .submit-btn:hover {
-    background-color: #11353c;
+    background-color: #004950;
 }
 
 /* Responsive */
@@ -274,4 +274,182 @@
     .form-select, .form-input {
         padding: 12px;
     }
+};
+
+/* Estilos para el historial de movimientos */
+.historyProduct-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.1);
+    overflow-x: auto;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.historyProduct-container h2 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.1);
+    overflow-x: auto;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.historyProduct-container h3 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.1);
+    overflow-x: auto;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.historyProduct-container .table {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.1);
+    overflow-x: auto;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.historyProduct-container .table th {
+    background-color: #001526;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 500;
+    position: sticky;
+    top: 0;
+}
+
+.historyProduct-container .table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #11353c;
+}
+
+.historyProduct-container .table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Estilos para el formulario de salida de productos */
+.checkoutproduct-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 75px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.1);
+    animation: fadeIn 0.8s ease-out;
+}
+
+.checkoutproduct-container h2 {
+    color: #001526;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #60502a;
+}
+
+.checkoutproduct-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.checkoutproduct-container form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.checkoutproduct-container label {
+    color: #11353c;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.checkoutproduct-container select,
+.checkoutproduct-container input {
+    padding: 12px 15px;
+    border: 1px solid #60502a;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.checkoutproduct-container select:focus,
+.checkoutproduct-container input:focus {
+    border-color: #004950;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 73, 80, 0.2);
+    background-color: white;
+}
+
+.checkoutproduct-container button {
+    padding: 14px;
+    background-color: #004950;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.checkoutproduct-container button:hover {
+    background-color: #004950;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .historiTable-container,
+    .checkoutproduct-container {
+        padding: 20px;
+    }
+    
+    .historiTable-container h2,
+    .checkoutproduct-container h2 {
+        font-size: 1.5rem;
+    }
+    
+    .historiTable-container h3 {
+        font-size: 1.2rem;
+    }
+    
+    .historiTable-container .table th,
+    .historiTable-container .table td {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+    
+    .checkoutproduct-container label {
+        font-size: 1rem;
+    }
+    
+    .checkoutproduct-container select,
+    .checkoutproduct-container input {
+        padding: 10px 12px;
+    }
+    
+    .checkoutproduct-container button {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }

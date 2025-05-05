@@ -29,7 +29,7 @@ export const MovementHistory = () => {
     }, []);
 
     return (
-        <div style={{ overflowY: "auto", maxHeight: "100vh", padding: "1rem" }}>
+        <div>
             <h2>Historial de Movimiento</h2>
             <h3>Entradas</h3>
             <table className="table">

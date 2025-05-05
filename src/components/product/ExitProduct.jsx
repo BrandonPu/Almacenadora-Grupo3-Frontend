@@ -63,7 +63,7 @@ export const ExitProduct = () => {
     };
 
     return (
-        <div>
+        <div className="checkoutproduct-container">
             <h2>Registrar Salida de Producto</h2>
             <form onSubmit={handleSubmit}>
                 <div>
