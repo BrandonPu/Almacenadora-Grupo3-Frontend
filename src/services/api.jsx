@@ -354,3 +354,26 @@ export const clientFrecuentSave = async (data) => {
         }
     }
 }
+
+
+export const updateUser = async (data) => {
+    try {
+        return await apiClient.put("/users/updateUser", data);
+    } catch (error) {
+        return {
+            error: true,
+            message: error.response?.data?.message || "Error al actualizar el usuario"
+        };
+    }
+};
+
+export const changePassword = async (passwordData) => {
+    try {
+        return await apiClient.put("/users/passwordUpdate", passwordData);
+    } catch (error) {
+        return {
+            error: true,
+            message: error.response?.data?.message || "Error al cambiar la contraseña"
+        };
+    }
+};

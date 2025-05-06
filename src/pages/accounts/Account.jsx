@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar } from '../../components/navbars/Navbar';
 import logo from '../../assets/img/logomyaccount2.png';
 import './account.css';
+import {UpdateAccount} from '../../components/account/UpdateAccount';
 
 export const Account = () => {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -13,7 +14,7 @@ export const Account = () => {
     return (
         <>
             <Navbar />
-            <div className="account-container">
+            <div className="account-container grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
                 <div className="card account-card animate-fade-in">
                     <div className="card-header text-center account-header">
                         <img src={logo} alt="Usuario" className="account-logo" />
@@ -28,6 +29,10 @@ export const Account = () => {
                             <li className="list-group-item"><strong>Token:</strong> <code>{user.token}</code></li>
                         </ul>
                     </div>
+                </div>
+
+                <div className="animate-fade-in">
+                    <UpdateAccount />
                 </div>
             </div>
         </>
