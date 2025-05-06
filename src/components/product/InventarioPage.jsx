@@ -7,7 +7,7 @@ export const InventarioPage = () => {
     const totalValue = products.reduce((acc, p) => acc + (p.stock * p.price), 0);
 
     return (
-        <div>
+        <div className="inventoryReport-container">
             <h2>Informe de Inventario</h2>
 
             {loading ? (

@@ -84,9 +84,9 @@ input[type="date"] {
     background-color: #f1f1f1;  
     color: #001526;  
     border: 1px solid #60502a; 
-    padding: 12px; 
+    padding: 5px; 
     font-size: 14px;  
-    width: 100%;  
+ 
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -515,4 +515,16 @@ input[type="date"].error {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+
+.inventoryReport-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.1);
+    overflow-x: auto;
+    animation: fadeIn 0.8s ease-out;
 }

@@ -44,12 +44,12 @@ export const UpdateAccount = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto p-4 bg-white shadow-md rounded-xl">
-            <h2 className="text-2xl font-semibold mb-4 text-center">Editar Cuenta</h2>
+        <div className="formUpdate-contaienr">
+            <h2 className="titleAccount-container">Editar Cuenta</h2>
             
-            <form onSubmit={handleUserSubmit} className="space-y-4 mb-6">
+            <form onSubmit={handleUserSubmit} className="updateAccount-container">
                 <div>
-                    <label className="block text-sm font-medium">Nombre</label>
+                    <label className="label-container">Nombre</label>
                     <input
                         type="text"
                         name="name"
@@ -60,7 +60,7 @@ export const UpdateAccount = () => {
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-medium">Apellido</label>
+                    <label className="label-container">Apellido</label>
                     <input
                         type="text"
                         name="surname"
@@ -71,7 +71,7 @@ export const UpdateAccount = () => {
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-medium">Username</label>
+                    <label className="label-container">Username</label>
                     <input
                         type="text"
                         name="username"
@@ -84,7 +84,7 @@ export const UpdateAccount = () => {
 
                 <button
                     type="submit"
-                    className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700"
+                    className="button-updateData"
                     disabled={loading}
                 >
                     {loading ? 'Actualizando...' : 'Actualizar Datos'}
@@ -96,7 +96,7 @@ export const UpdateAccount = () => {
 
             <form onSubmit={handlePasswordSubmit} className="space-y-4">
                 <div>
-                    <label className="block text-sm font-medium">Contraseña actual</label>
+                    <label className="label-container">Contraseña actual</label>
                     <input
                         type="password"
                         name="passwordOld"
@@ -107,7 +107,7 @@ export const UpdateAccount = () => {
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-medium">Contraseña nueva</label>
+                    <label className="label-container">Contraseña nueva</label>
                     <input
                         type="password"
                         name="passwordNew"
@@ -118,7 +118,7 @@ export const UpdateAccount = () => {
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-medium">Confirmar nueva contraseña</label>
+                    <label className="label-container">Confirmar nueva contraseña</label>
                     <input
                         type="password"
                         name="passwordConfirm"
@@ -131,7 +131,7 @@ export const UpdateAccount = () => {
 
                 <button
                     type="submit"
-                    className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700"
+                    className="button-updatePassword"
                     disabled={loading}
                 >
                     {loading ? 'Actualizando...' : 'Actualizar Contraseña'}

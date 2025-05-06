@@ -4,13 +4,13 @@ export const ClientFrePage = () => {
     const { clientFre, isLoading} = useClientFrecuentPage();
 
     return (
-        <div>
+        <div className="tableClientFre-container">
             <h2>Lista de Clientes Frecuentes</h2>
     
             {isLoading ? (
                 <p>Cargando clientes frecuentes...</p>
             ) : (
-                <table border="1">
+                <table>
                     <thead>
                         <tr>
                             {["ID","Nombre","Apellido","Email","Teléfono","Estado","Creado","Actualizado"].map((header, i) => (
