@@ -80,6 +80,31 @@
     animation: fadeIn 0.8s ease-out;
 }
 
+input[type="date"] {
+    background-color: #f1f1f1;  
+    color: #001526;  
+    border: 1px solid #60502a; 
+    padding: 12px; 
+    font-size: 14px;  
+    width: 100%;  
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); 
+    background-color: transparent;  
+}
+
+input[type="date"].error {
+    border: 1px solid red;  
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
 .product-form {
     display: flex;
     flex-direction: column;
