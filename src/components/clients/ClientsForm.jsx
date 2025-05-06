@@ -77,6 +77,7 @@ export const ClientForm = () => {
 
     return (
         <div className="register-client-container">
+            <h2 className="entry-titleAddClient">Agregar Cliente</h2>
             <form className="client-form">
                 <Input
                     field="name"

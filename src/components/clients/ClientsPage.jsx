@@ -47,16 +47,16 @@ export const ClientsPage = () => {
     }
 
     return (
-        <div>
+        <div className="clientTable-container">
             <h2>Lista de Clientes</h2>
 
             {isLoading ? (
                 <p>Cargando clientes...</p>
             ) : (
-                <table border="1">
+                <table>
                     <thead>
                         <tr>
-                            {["ID", "Nombre", "Apellido","Email", "Teléfono", "Estado", "Creado", "Actualizado"].map((header, i) => (
+                            {["ID", "Nombre", "Apellido","Email", "Teléfono", "Estado", "Creado", "Actualizado", "Editar", "Eliminar"].map((header, i) => (
                                 <th key={i}>{header}</th>
                             ))}
                         </tr>
@@ -73,8 +73,11 @@ export const ClientsPage = () => {
                                 <td>{new Date(client.createdAt).toLocaleString()}</td>
                                 <td>{new Date(client.updatedAt).toLocaleString()}</td>
                                 <td>
+                                    <button onClick={() => handleEdit(client)}>Editar</button>
+                                </td>
+                                <td>
                                     <button onClick={() => handleDelete(client._id)}>Eliminar</button>
-                                    <button onClick={() => handleEdit(client)} style={{marginLeft: '1rem' }}>Editar</button>
+                                    
                                 </td>
                             </tr>
                         ))}

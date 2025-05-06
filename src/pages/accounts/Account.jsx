@@ -14,27 +14,28 @@ export const Account = () => {
     return (
         <>
             <Navbar />
-            <div className="account-container grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
-                <div className="card account-card animate-fade-in">
-                    <div className="card-header text-center account-header">
-                        <img src={logo} alt="Usuario" className="account-logo" />
-                        <h5 className="mt-3">Información Personal</h5>
+            <div style={{ paddingTop: '15px' }} />
+            <div className='account-page'>
+                <div className="account-grid">
+                    <div className="account-info-card">
+                        <div className="account-header">
+                            <img src={logo} alt="Usuario" className="account-logo" />
+                            <h5 className="account-title">Información Personal</h5>
+                        </div>
+                        <div className="account-details">
+                            <ul className="list-group list-group-flush">
+                                <li className="list-group-item"><strong>Nombre:</strong> {user.name}</li>
+                                <li className="list-group-item"><strong>Apellido:</strong> {user.surname}</li>
+                                <li className="list-group-item"><strong>Username:</strong> {user.username}</li>
+                                <li className="list-group-item"><strong>Email:</strong> {user.email}</li>
+                                <li className="list-group-item"><strong>Token:</strong> <code>{user.token}</code></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div className="card-body">
-                        <ul className="list-group list-group-flush">
-                            <li className="list-group-item"><strong>Nombre:</strong> {user.name}</li>
-                            <li className="list-group-item"><strong>Apellido:</strong> {user.surname}</li>
-                            <li className="list-group-item"><strong>Username:</strong> {user.username}</li>
-                            <li className="list-group-item"><strong>Email:</strong> {user.email}</li>
-                            <li className="list-group-item"><strong>Token:</strong> <code>{user.token}</code></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="animate-fade-in">
                     <UpdateAccount />
                 </div>
             </div>
+            
         </>
     );
 };

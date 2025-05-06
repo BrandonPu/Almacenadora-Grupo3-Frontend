@@ -377,3 +377,14 @@ export const changePassword = async (passwordData) => {
         };
     }
 };
+
+export const productView = async () => {
+    try {
+        return await apiClient.get("/products/productView");
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }      
+    }
+}

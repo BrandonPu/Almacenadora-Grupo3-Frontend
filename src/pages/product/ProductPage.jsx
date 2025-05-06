@@ -5,6 +5,7 @@ import { RegisterProduct } from "../../components/product/RegisterProduct";
 import { EntryProduct } from "../../components/product/EntryProduct";
 import { ExitProduct } from "../../components/product/ExitProduct";
 import { MovementHistory } from "../../components/product/MovementHistory";
+import { InventarioPage } from "../../components/product/InventarioPage"
 import "./ProductPage.css";
 
 export const ProductPage = () => {
@@ -52,6 +53,12 @@ export const ProductPage = () => {
                         >
                             Historial de movimiento
                         </button>
+                        <button
+                            className={`btn ${viewMode === "inventario" ? "btn-primary" : "btn-secondary"}`}
+                            onClick={() => handleToggleView("inventario")}
+                        >
+                            Informes de inventario
+                        </button>
                     </div>
                 </div>
                 
@@ -61,7 +68,7 @@ export const ProductPage = () => {
                     </div>
                 )}
                 
-
+                {viewMode === "inventario" && <InventarioPage/>}
                 {viewMode === "register" && <RegisterProduct />}
                 {viewMode === "entry" && <EntryProduct />}
                 {viewMode === "exit" && <ExitProduct />}

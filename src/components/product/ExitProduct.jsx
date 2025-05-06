@@ -114,6 +114,7 @@ export const ExitProduct = () => {
                 <div>
                     <label>Tipo de Cliente:</label>
                     <select
+                    className="form-select"
                         value={clientType}
                         onChange={(e) => setClientType(e.target.value)}
                     >
