@@ -16,7 +16,7 @@ export const Navbar = () => {
     return (
         <nav className="navbar navbar-dark fixed-top" style={{ backgroundColor: '#001526' }}>
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">Almacén de Productos</a>
+                <a className="navbar-brand" href="/dashboardPage">Almacén de Productos</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -51,6 +51,11 @@ export const Navbar = () => {
                             <li className="nav-item">
                             <NavLink to="/supplierPage" className="nav-link">
                             Proveedores
+                            </NavLink>
+                            </li>
+                            <li className="nav-item">
+                            <NavLink to="/reportPage" className="nav-link">
+                            Reportes y Estadisticas
                             </NavLink>
                             </li>
                         </ul>

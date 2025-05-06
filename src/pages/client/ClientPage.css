@@ -1,10 +1,11 @@
 /* Contenedor principal */
 .product-container {
-    padding: 80px;
+    padding: 80px 20px; /* Ajustado para dar más espacio lateral */
     background-color: #f5f1e6;
     font-family: 'Arial', sans-serif;
     min-height: calc(100vh - 15px);
     animation: fadeIn 0.8s ease-out;
+    margin-top: 20px; /* Ajuste de margen superior */
 }
 
 /* Encabezado y controles */
@@ -30,12 +31,13 @@
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    margin-bottom: 20px; /* Separar los botones de otros elementos */
 }
 
 /* Tabla de productos */
 .product-table-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 20px auto;
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 21, 38, 0.1);
@@ -102,6 +104,7 @@
 .product-container table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px; /* Separar la tabla de los elementos superiores */
 }
 
 .product-container th {

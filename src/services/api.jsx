@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { data } from 'react-router-dom';
 
 const apiClient = axios.create({
     baseURL: "http://127.0.0.1:3001/almacenadora/v1",
@@ -219,6 +218,17 @@ export const exitProduct = async (id, data) => {
     }
 };
 
+export const productView = async () => {
+    try {
+        return await apiClient.get("/products/productView");
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }      
+    }
+}
+
 export const getMovementHistory = async () => {
     try {
         const response = await apiClient.get("/products/historyProductView");
@@ -289,6 +299,7 @@ export const getMostActiveProducts = async () => {
         };
     }
 };
+
 export const clientView = async () => {
     try {
         return await apiClient.get('/frecuentClients/clientView');

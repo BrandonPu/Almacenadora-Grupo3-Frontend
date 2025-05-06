@@ -7,53 +7,57 @@ import { ClientFrecuentForm } from "../../components/clientsFrecuent/ClientFreFo
 import "./ClientPage.css"
 
 export const ClientPage = () => {
-    const [viewMode, setViewMode] = useState("table")
+    const [viewMode, setViewMode] = useState("table");
 
     const handleToggleView = (view) => {
         setViewMode(view);
     }
 
-    return(
+    return (
         <>
             <Navbar />
-            <div style={{ paddingTop: '85px' }} />
-            <div className="product-container"></div>
-            <h1>Informacion de Clientes</h1>
-
-            <button
-                className="btn btn-primary mb-3"
-                onClick={() => handleToggleView("table")}
-            >
-                ver Clientes    
-            </button>
             
-            <button
-                className="btn btn-primary mb-3"
-                onClick={() => handleToggleView("agregar")}
-            >
-                Agregar Cliente
-            </button>
+            {/* Evitamos un paddingTop fijo y dejamos que el contenido fluya */}
+            <div className="content-container">
+                <h1>Información de Clientes</h1>
 
-            <button
-                className="btn btn-primary mb-3"
-                onClick={() => handleToggleView("table2")}
-            >
-                ver Clientes frecuentes 
-            </button>
+                <div className="btn-container">
+                    {/* Botones organizados en un contenedor con márgenes */}
+                    <button
+                        className="btn btn-primary mb-3"
+                        onClick={() => handleToggleView("table")}
+                    >
+                        Ver Clientes    
+                    </button>
+                    
+                    <button
+                        className="btn btn-primary mb-3"
+                        onClick={() => handleToggleView("agregar")}
+                    >
+                        Agregar Cliente
+                    </button>
 
-            <button
-                className="btn btn-primary mb-3"
-                onClick={() => handleToggleView("agregar2")}
-            >
-                Agregar Cliente Frecuentes
-            </button>
+                    <button
+                        className="btn btn-primary mb-3"
+                        onClick={() => handleToggleView("table2")}
+                    >
+                        Ver Clientes Frecuentes 
+                    </button>
 
+                    <button
+                        className="btn btn-primary mb-3"
+                        onClick={() => handleToggleView("agregar2")}
+                    >
+                        Agregar Cliente Frecuente
+                    </button>
+                </div>
 
-
-            {viewMode === "table" && <ClientsPage/>}
-            {viewMode === "agregar" && <ClientForm/>}
-            {viewMode === "table2" && <ClientFrePage/>}
-            {viewMode === "agregar2" && <ClientFrecuentForm/>}
+                {/* Mostramos las vistas según la selección */}
+                {viewMode === "table" && <ClientsPage />}
+                {viewMode === "agregar" && <ClientForm />}
+                {viewMode === "table2" && <ClientFrePage />}
+                {viewMode === "agregar2" && <ClientFrecuentForm />}
+            </div>
         </>
-    )
+    );
 }
