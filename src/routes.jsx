@@ -8,17 +8,18 @@ import { SupplierPage } from "./pages/suppliers/SupplierPage";
 import { ReportPage } from "./pages/reports"
 import { UserPage } from "./pages/user/UserPage";
 
-const routes = [
-    { path: "/", element: <Auth /> },
-    { path: "/dashboardPage", element: <DashboardPage /> },
-    { path: "/productPage", element: <ProductPage/> },
-    { path: "/account", element: <Account/>},
-    { path: "/categoriesPage", element: <CategoryPage/>},
-    { path: "/supplierPage", element: <SupplierPage/>},
-    { path: "/reportPage", element: <ReportPage/>},
-    { path: "/clientPage", element: <ClientPage/>},
-    { path: "/userPage", element: <UserPage/>}
+import { PrivateRoute } from "./components/PrivateRoute"
 
-]
+const routes = [
+  { path: "/", element: <Auth /> },
+  { path: "/dashboardPage", element: <PrivateRoute><DashboardPage /></PrivateRoute> },
+  { path: "/productPage", element: <PrivateRoute><ProductPage /></PrivateRoute> },
+  { path: "/account", element: <PrivateRoute><Account /></PrivateRoute> },
+  { path: "/categoriesPage", element: <PrivateRoute><CategoryPage /></PrivateRoute> },
+  { path: "/supplierPage", element: <PrivateRoute><SupplierPage /></PrivateRoute> },
+  { path: "/reportPage", element: <PrivateRoute><ReportPage /></PrivateRoute> },
+  { path: "/clientPage", element: <PrivateRoute><ClientPage /></PrivateRoute> },
+  { path: "/userPage", element: <PrivateRoute><UserPage /></PrivateRoute> },
+];
 
 export default routes
