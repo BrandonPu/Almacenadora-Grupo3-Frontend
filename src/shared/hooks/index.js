@@ -26,3 +26,6 @@ export {useClientFrecuentPage} from "./useClientFrecuentPage";
 export {useClientFrecuentForm} from "./useClientFrecuentForm"
 export { useUpdateUser } from "./useUpdateUser";
 export {useProductViewPage} from "./useProductPage"
+export {useUserView} from "./useUserView"
+export { useUpdateRoleUser } from "./useUpdateRoleUser";
+export { useDeleteUser } from "./useDeleteUser";

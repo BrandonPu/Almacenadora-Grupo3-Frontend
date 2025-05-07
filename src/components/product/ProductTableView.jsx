@@ -107,7 +107,7 @@ export const ProductTable = () => {
                 <table border="1">
                     <thead>
                         <tr>
-                            {["ID", "Nombre", "Descripción", "Stock", "Precio", "Fecha de Entrada", "Fecha de Salida", "Eliminar", "Editar"].map((header, i) => (
+                            {["ID", "Nombre", "Descripción", "Stock", "Precio", "Fecha de Entrada", "Fecha de Salida", "Editar", "Eliminar"].map((header, i) => (
                                 <th key={i}>{header}</th>
                             ))}
                         </tr>
@@ -123,10 +123,10 @@ export const ProductTable = () => {
                                 <td>{new Date(product.entryDate).toISOString().split("T")[0]}</td>
                                 <td>{new Date(product.expirationDate).toISOString().split("T")[0]}</td>
                                 <td>
-                                    <button onClick={() => handleDelete(product._id)}>Eliminar</button>
+                                    <button className="btnUpdateProduct" onClick={() => handleEdit(product)}>Editar</button>
                                 </td>
                                 <td>
-                                    <button onClick={() => handleEdit(product)}>Editar</button>
+                                    <button className="btnDeleteProduct" onClick={() => handleDelete(product._id)}>Eliminar</button>
                                 </td>
                             </tr>
                         ))}

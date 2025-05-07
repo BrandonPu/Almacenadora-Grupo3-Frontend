@@ -388,3 +388,40 @@ export const productView = async () => {
         }      
     }
 }
+
+export const getUser = async () => {
+    try {
+        return await apiClient.get("/users/usersView");
+    } catch (e) {
+        return {
+            error: true,
+            e
+        }
+    }
+}
+
+export const updateUserRole = async (id, data) => {
+    try {
+        const response = await apiClient.put(`/users/updateRole/${id}`, data);
+        return response.data;
+    } catch (error) {
+        return {
+            error: true,
+            message: error.response?.data?.message || "Error al actualizar el rol del usuario"
+        };
+    }
+};
+
+export const deleteUser = async (id) => {
+    try {
+        const response = await apiClient.delete(`/users/userDelete/${id}`, {
+            data: { confirmDeletion: true },
+        });
+        return response.data;
+    } catch (error) {
+        return {
+            error: true,
+            message: error.response?.data?.message || "Error al eliminar el usuario",
+        };
+    }
+};

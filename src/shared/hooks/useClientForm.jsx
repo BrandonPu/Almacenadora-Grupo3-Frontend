@@ -1,15 +1,17 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { saveClient as saveClientRequest} from "../../services";
 import toast from "react-hot-toast";
 
 export const useClientForm = () => {
     const [isLoading, setIsLoading] = useState(false);
     const token = localStorage.getItem('token');
+    const navigate = useNavigate();
 
-    const saveClient = async(name, surname , email,phoneNumber)=>{
+    const saveClient = async(userData)=>{
         setIsLoading(true)
 
-        const response = await saveClientRequest({name, surname , email,phoneNumber})
+        const response = await saveClientRequest({userData})
         
         setIsLoading(false)
 
@@ -20,6 +22,8 @@ export const useClientForm = () => {
         }
 
         toast.success('Cliente agregado correctamente')
+        navigate('/clietPage', { replace: true });
+        window.location.reload();
     }
 
     return{
