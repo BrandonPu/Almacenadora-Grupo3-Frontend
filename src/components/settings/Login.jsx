@@ -1,5 +1,4 @@
 import { useState } from "react";
- import { Logo } from "./Logo";
  import { Input } from "./Input";
  import {
      emailValidationMessage,
@@ -67,7 +66,7 @@ import { useState } from "react";
  
      return (
          <div className="login-container">
-             <Logo text={'Login Almacenadora'}/>
+            <div className="text-login-container">Sing in</div>
              <form className="auth-form">
                  <Input
                      field='email'

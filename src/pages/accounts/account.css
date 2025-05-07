@@ -19,7 +19,8 @@
 .account-info-card {
     background-color: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.1);
+    margin: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     overflow: hidden;
     border: 1px solid #e0e5ec;
     animation: fadeInUp 0.8s ease-out;

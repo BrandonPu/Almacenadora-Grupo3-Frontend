@@ -1,5 +1,4 @@
 import { useState } from "react";
-import {Logo} from "./Logo";
 import {Input} from "./Input";
 import {
     validateUsername,
@@ -109,7 +108,7 @@ export const Register = ({switchAuthHandler}) =>{
         !formState.passwordConfir.isValid;
     return(
         <div className="register-container">
-            <Logo text={'Register Almacenadora'}/>
+            <div className="text-register-container">Register</div>
             <form className="auth-form">
                 <Input
                     field='name'
