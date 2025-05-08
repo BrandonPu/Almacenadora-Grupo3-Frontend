@@ -152,6 +152,19 @@ color: #001526;
 transition: all 0.3s ease;
 }
 
+.client-form select {
+  width: 100%;
+  height: 50px;
+  margin-top: 2px;
+  padding: 10px;
+  border: 1px solid #60502a;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  color: #001526;
+  transition: all 0.3s ease;
+}
+
 .error-message {
 color: #d32f2f;
 font-size: 14px;

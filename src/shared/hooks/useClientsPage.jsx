@@ -22,6 +22,7 @@ export const  useClientPage = () => {
 
     return {
         clients,
-        isLoading
+        isLoading,
+        fetchClients
     }
 }

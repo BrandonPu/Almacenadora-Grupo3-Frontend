@@ -1,52 +1,50 @@
 import { useState } from "react";
 import { Input } from "../settings/Input";
-import { useClientFrecuentForm } from "../../shared/hooks";
+import { useClientFrecuentForm, useClientPage } from "../../shared/hooks";
 
 export const ClientFrecuentForm = () => {
-    const { saveClientFrecuent, isLoading } = useClientFrecuentForm();
+    const { saveClientFrecuent, isLoading } = useClientFrecuentForm()
+    const { clients } = useClientPage()
 
     const [formState, setFormState] = useState({
-        name:{ 
-            value: '', 
+        name:{ value: '', 
             isValid: false, 
-            showError: false },
-        surname:{ 
-            value: '', 
+            showError: false 
+        },
+        surname:{ value: '', 
             isValid: false, 
             showError: false 
         },
         email:{ 
             value: '', 
             isValid: false, 
-            showError: false },
+            showError: false 
+        },
         phoneNumber:{ 
             value: '', 
             isValid: false, 
-            showError: false
+            showError: false 
         }
-    });
+    })
 
-    const handleInputValueChange = (value, field) => {
+    const handleInputValueChange = (value, field) =>{
         setFormState(prev => ({
             ...prev,
-            [field]: {
-                ...prev[field],
-                value
-            }
-        }));
-    };
+            [field]: { ...prev[field], value }
+        }))
+    }
 
-    const handleInputValidationOnBlur = (value, field) => {
-        let isValid = value.trim() !== '';
+    const handleInputValidation = (field, value) => {
+        let isValid = value.trim() !== ''
 
         if (field === 'email') {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
             isValid = emailRegex.test(value);
         }
 
         if (field === 'phoneNumber') {
-            const phoneRegex = /^[0-9]{8,}$/;
-            isValid = phoneRegex.test(value);
+            const phoneRegex = /^[0-9]{8,}$/
+            isValid = phoneRegex.test(value)
         }
 
         setFormState(prev => ({
@@ -56,40 +54,85 @@ export const ClientFrecuentForm = () => {
                 isValid,
                 showError: !isValid
             }
-        }));
-    };
+        }))
+    }
+
+    const handleSelectEmail = (e) => {
+        const selectedEmail = e.target.value;
+        const client = clients.find(c => c.email === selectedEmail)
+
+        if (client) {
+            const updatedState = {
+                name:{ 
+                    value: client.name, 
+                    isValid: true, 
+                    showError: false 
+                },
+                surname:{ 
+                    value: client.surname, 
+                    isValid: true, 
+                    showError: false 
+                },
+                email:{ 
+                    value: client.email, 
+                    isValid: true, 
+                    showError: false 
+                },
+                phoneNumber:{ 
+                    value: client.phoneNumber, 
+                    isValid: true, 
+                    showError: false 
+                }
+            };
+            setFormState(updatedState)
+        }
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const confirmAdd = window.confirm("¿Estás seguro de que este cliente tiene más de 10 compras?");
-        if (!confirmAdd) return;
+        const confirmAdd = window.confirm("¿Estás seguro de que este cliente tiene más de 10 compras?")
+        if (!confirmAdd) return
 
         await saveClientFrecuent(
             formState.name.value,
             formState.surname.value,
             formState.email.value,
             formState.phoneNumber.value
-        );
-    };
+        )
+    }
 
     const isSubmitDisabled = isLoading ||
         !formState.name.isValid ||
         !formState.surname.isValid ||
         !formState.email.isValid ||
-        !formState.phoneNumber.isValid;
+        !formState.phoneNumber.isValid
 
         return (
             <div className="register-client-container">
-                <h2 className="entry-titleAddClient">Agregar Cliente Frecuente</h2>
                 <form className="client-form">
+                    <div>
+                        <span>Email</span>
+                        <select 
+                            className="selectEmailClienFre"
+                            onChange={handleSelectEmail} 
+                            defaultValue="">
+                            <option value="" disabled>Seleccione un correo</option>
+                            {clients.map(client => (
+                                <option key={client._id} value={client.email}>
+                                    {client.email}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+    
                     <Input
                         field="name"
                         label="Nombre"
                         value={formState.name.value}
                         onChangeHandler={handleInputValueChange}
                         type="text"
-                        onBlurHandler={handleInputValidationOnBlur}
+                        onBlurHandler={(value) => handleInputValidation("name", value)}
                         showErrorMessage={formState.name.showError}
                     />
                     <Input
@@ -98,17 +141,8 @@ export const ClientFrecuentForm = () => {
                         value={formState.surname.value}
                         onChangeHandler={handleInputValueChange}
                         type="text"
-                        onBlurHandler={handleInputValidationOnBlur}
+                        onBlurHandler={(value) => handleInputValidation("surname", value)}
                         showErrorMessage={formState.surname.showError}
-                    />
-                    <Input
-                        field="email"
-                        label="Email"
-                        value={formState.email.value}
-                        onChangeHandler={handleInputValueChange}
-                        type="email"
-                        onBlurHandler={handleInputValidationOnBlur}
-                        showErrorMessage={formState.email.showError}
                     />
                     <Input
                         field="phoneNumber"
@@ -116,13 +150,14 @@ export const ClientFrecuentForm = () => {
                         value={formState.phoneNumber.value}
                         onChangeHandler={handleInputValueChange}
                         type="text"
-                        onBlurHandler={handleInputValidationOnBlur}
+                        onBlurHandler={(value) => handleInputValidation("phoneNumber", value)}
                         showErrorMessage={formState.phoneNumber.showError}
                     />
+    
                     <button onClick={handleSubmit} disabled={isSubmitDisabled}>
                         {isLoading ? "Guardando..." : "Guardar Cliente Frecuente"}
                     </button>
                 </form>
             </div>
-        );
-};
+        )
+    }

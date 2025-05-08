@@ -23,6 +23,8 @@ export { useClientForm } from "./useClientForm";
 export {useClientDelete} from "./useClientDelete";
 export {useClientUpdate} from "./useClientUpdate";
 export {useClientFrecuentPage} from "./useClientFrecuentPage";
+export { useClientFrecuentDelete } from "./useClientFrecuentDelete";
+export {useClientFrecuentUpdate} from "./useClientFrecuentUpdate";
 export {useClientFrecuentForm} from "./useClientFrecuentForm"
 export { useUpdateUser } from "./useUpdateUser";
 export {useProductViewPage} from "./useProductPage"
