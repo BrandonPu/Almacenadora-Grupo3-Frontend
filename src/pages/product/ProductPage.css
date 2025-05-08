@@ -57,6 +57,17 @@
     animation: fadeIn 0.8s ease-out;
 }
 
+.product-table-container .searchNameProduct {
+    width: 200px;
+    margin-block-end: 15px;
+    color: #001526;
+    transition: all 0.3s ease;padding: 5px 5px;
+    border: 1px solid #001526;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: #f9f9f9;
+}
+
 /* FORMULARIO REGISTRO - VERSIÓN AUMENTADA Y CENTRADA */
 .registerproducts-container{
     max-width: 900px;
@@ -91,11 +102,14 @@
 }
 
 input[type="date"] {
-    background-color: #f1f1f1;  
-    color: #001526;  
-    border: 1px solid #60502a; 
-    padding: 5px; 
-    font-size: 14px;  
+    width: 200px;
+    margin-block-end: 15px;
+    color: #001526;
+    transition: all 0.3s ease;padding: 5px 5px;
+    border: 1px solid #001526;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: #f9f9f9;  
  
 }
 

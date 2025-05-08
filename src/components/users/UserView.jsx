@@ -37,6 +37,7 @@ export const UserView = () => {
 
             <div style={{ marginBottom: "1rem" }}>
                 <input
+                    className="searchNameUser"
                     type="text"
                     placeholder="Buscar por nombre de usuario"
                     value={usernameFilter}
@@ -44,6 +45,7 @@ export const UserView = () => {
                     style={{ marginRight: "1rem" }}
                 />
                 <input
+                    className="filterRole"
                     type="text"
                     placeholder="Filtrar por rol"
                     value={roleFilter}

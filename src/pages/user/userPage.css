@@ -75,6 +75,28 @@
     border-collapse: collapse;
 }
 
+.user-table-container .searchNameUser {
+    width: 220px;
+    margin-block-end: 15px;
+    color: #001526;
+    transition: all 0.3s ease;padding: 5px 5px;
+    border: 1px solid #001526;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: #f9f9f9;
+}
+
+.user-table-container .filterRole {
+    width: 110px;
+    margin-block-end: 15px;
+    color: #001526;
+    transition: all 0.3s ease;padding: 5px 5px;
+    border: 1px solid #001526;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: #f9f9f9;
+}
+
 .user-table-container th {
     background-color: #001526;
     color: white;

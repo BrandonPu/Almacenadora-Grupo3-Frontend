@@ -86,6 +86,7 @@ export const ProductTable = () => {
             <h2>Lista de Productos</h2>
             <div style={{ marginBottom: "1rem" }}>
                 <input
+                    className="searchNameProduct"
                     type="text"
                     placeholder="Buscar por nombre"
                     value={nameFilter}
