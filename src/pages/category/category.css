@@ -1,9 +1,9 @@
-/* Contenedor principal */
 .category-container {
     padding: 80px;
     background-color: #f5f1e6;
     font-family: 'Arial', sans-serif;
-    min-height: calc(100vh - 15px); /* Ajustado para el navbar */
+    min-height: calc(100vh - 15px);
+    /* Ajustado para el navbar */
     animation: fadeIn 0.8s ease-out;
 }
 
@@ -23,7 +23,8 @@
 }
 
 .category-header h1 {
-    color: #f5f1e6; /* Cambiado a claro para contraste */
+    color: #f5f1e6;
+    /* Cambiado a claro para contraste */
     font-size: 2.2rem;
     margin: 0;
     flex-grow: 1;
@@ -119,73 +120,17 @@
     color: white;
 }
 
-/* Formulario de agregar categoría */
-.add-category-container {
-    max-width: 900px;
-    margin: 20px auto;
-    background: #11353c;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: fadeIn 0.8s ease-out;
-}
-
-.add-category-container h2 {
-    color: #f5f1e6;
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-}
-
-.category-form {
-    width: 100%;
-    max-width: 700px;
-}
-
-.category-form > div {
-    margin-bottom: 25px;
-    width: 100%;
-}
-
-.category-form label {
-    display: block;
-    margin-bottom: 10px;
-    color: #f5f1e6;
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-
-.category-form input {
-    width: 100%;
-    padding: 15px 18px;
-    border: 1px solid #60502a;
-    border-radius: 6px;
-    font-size: 1.1rem;
-    background-color: #e0e0e0d3;
-    color: #001526;
-    transition: all 0.3s ease;
-}
-
-.category-form button[type="submit"] {
-    width: 60%;
-    padding: 16px;
-    background-color: #004950;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 20px;
-}
-
 /* Animación */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive */
@@ -194,26 +139,26 @@
         padding: 20px;
         min-height: calc(100vh - 75px);
     }
-    
+
     .category-header {
         flex-direction: column;
         align-items: flex-start;
         padding: 20px;
     }
-    
+
     .button-group {
         width: 100%;
         margin-top: 15px;
     }
-    
+
     .btn {
         width: 100%;
     }
-    
+
     .add-category-container {
         padding: 30px 20px;
     }
-    
+
     .category-form button[type="submit"] {
         width: 100%;
     }
@@ -221,33 +166,51 @@
 
 /* Contenedor principal */
 .registerCategories-container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 40px auto;
-    background-color: #11353c;
+    background: #ffffff;
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.15);
-    animation: fadeIn 0.6s ease-out;
+    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.1);
+    animation: fadeIn 0.8s ease-out;
+}
+
+.entry-titleCategory {
+    color: #001526;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #61460b;
+    padding-bottom: 10px;
 }
 
 /* Formulario */
 .Category-form {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 25px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 /* Contenedor de inputs */
-.Category-form > div {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+.Category-form span {
+    display: block;
+    color: #11353c;
+    font-weight: 600;
+    font-size: 1.2rem;
 }
 
 /* Estilos para el componente Input (deberás aplicarlos también en tu componente Input) */
-.Category-form .input-container {
-    position: relative;
+.Category-form input {
     width: 100%;
+    padding: 10px;
+    border: 1px solid #60502a;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    color: #001526;
+    transition: all 0.3s ease;
 }
 
 .Category-form label {
@@ -256,17 +219,6 @@
     color: #f5f1e6;
     font-weight: 600;
     font-size: 1.1rem;
-}
-
-.Category-form input {
-    width: 100%;
-    padding: 14px 18px;
-    border: 2px solid #60502a;
-    border-radius: 6px;
-    font-size: 1rem;
-    background-color: #e0e0e0d3;
-    color: #001526;
-    transition: all 0.3s ease;
 }
 
 .Category-form .error-message {
@@ -278,8 +230,9 @@
 
 /* Botón de registro */
 .Category-form button {
+    width: 85%;
     padding: 16px;
-    background-color: #61460b;
+    background-color: #004950;
     color: white;
     border: none;
     border-radius: 6px;
@@ -288,7 +241,9 @@
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 20px;
-    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .Category-form button:hover:not(:disabled) {
@@ -299,8 +254,15 @@
 
 /* Animación */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive */
@@ -309,19 +271,19 @@
         padding: 30px 20px;
         margin: 20px auto;
     }
-    
+
     .Category-form {
         gap: 20px;
     }
-    
-    .Category-form > div {
+
+    .Category-form>div {
         gap: 20px;
     }
-    
+
     .Category-form input {
         padding: 12px 15px;
     }
-    
+
     .Category-form button {
         padding: 14px;
     }

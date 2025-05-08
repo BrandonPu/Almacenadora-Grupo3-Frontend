@@ -218,17 +218,6 @@ export const exitProduct = async (id, data) => {
     }
 };
 
-export const productView = async () => {
-    try {
-        return await apiClient.get("/products/productView");
-    } catch (e) {
-        return{
-            error: true,
-            e
-        }      
-    }
-}
-
 export const getMovementHistory = async () => {
     try {
         const response = await apiClient.get("/products/historyProductView");
@@ -365,3 +354,95 @@ export const clientFrecuentSave = async (data) => {
         }
     }
 }
+
+export const clientFrecuentDelete = async (id) => {
+    try {
+        const response = await apiClient.delete(`/frecuentClients/deleteFrecuentClient/${id}`, {
+          data: { confirmDeletion: true },
+        });
+        return response.data;
+      } catch (e) {
+        return { error: true, e }
+      }
+}
+
+export const clientFrecuentUpdate = async(id, data) => {
+    try {
+        return await apiClient.put(`/frecuentClients/updateFrecuentClient/${id}`, data)
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }
+    }
+}
+
+export const updateUser = async (data) => {
+    try {
+        return await apiClient.put("/users/updateUser", data);
+    } catch (error) {
+        return {
+            error: true,
+            message: error.response?.data?.message || "Error al actualizar el usuario"
+        };
+    }
+};
+
+export const changePassword = async (passwordData) => {
+    try {
+        return await apiClient.put("/users/passwordUpdate", passwordData);
+    } catch (error) {
+        return {
+            error: true,
+            message: error.response?.data?.message || "Error al cambiar la contraseña"
+        };
+    }
+};
+
+export const productView = async () => {
+    try {
+        return await apiClient.get("/products/productView");
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }      
+    }
+}
+
+export const getUser = async () => {
+    try {
+        return await apiClient.get("/users/usersView");
+    } catch (e) {
+        return {
+            error: true,
+            e
+        }
+    }
+}
+
+export const updateUserRole = async (id, data) => {
+    try {
+        const response = await apiClient.put(`/users/updateRole/${id}`, data);
+        return response.data;
+    } catch (error) {
+        return {
+            error: true,
+            message: error.response?.data?.message || "Error al actualizar el rol del usuario"
+        };
+    }
+};
+
+export const deleteUser = async (id) => {
+    try {
+        const response = await apiClient.delete(`/users/userDelete/${id}`, {
+            data: { confirmDeletion: true },
+        });
+        return response.data;
+    } catch (error) {
+        return {
+            error: true,
+            message: error.response?.data?.message || "Error al eliminar el usuario",
+        };
+    }
+};

@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useProductView, useExitProduct } from "../../shared/hooks";
+import {
+    useProductView,
+    useExitProduct,
+    useClientPage,
+    useClientFrecuentPage,
+} from "../../shared/hooks";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { validateExitProduct } from "../../shared/validators/validateExitStock"; 
+import { validateExitProduct } from "../../shared/validators/validateExitStock";
 
 export const ExitProduct = () => {
     const [products, setProducts] = useState([]);
@@ -15,6 +20,9 @@ export const ExitProduct = () => {
 
     const { exitProductHandler } = useExitProduct();
     const { products: productList, error } = useProductView();
+    const { clients, isLoading: clientsLoading } = useClientPage();
+    const { clientFre, isLoading: clientsFrecuentLoading } = useClientFrecuentPage();
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -28,14 +36,25 @@ export const ExitProduct = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        
-        const validation = validateExitProduct(Number(quantity), selectedProductId, products);
+        const validation = validateExitProduct(
+            Number(quantity),
+            selectedProductId,
+            products
+        );
         if (!validation.valid) {
             toast.error(validation.message);
             return;
         }
 
-        if (!selectedProductId || !quantity || Number(quantity) <= 0 || !reason || !destination || !clientType || !email) {
+        if (
+            !selectedProductId ||
+            !quantity ||
+            Number(quantity) <= 0 ||
+            !reason ||
+            !destination ||
+            !clientType ||
+            !email
+        ) {
             toast.error("Completa todos los campos correctamente");
             return;
         }
@@ -61,6 +80,10 @@ export const ExitProduct = () => {
             setSelectedProductId("");
         }
     };
+
+    const isFrecuent = clientType === "frecuent";
+    const selectedClients = isFrecuent ? clientFre : clients;
+    const isLoading = isFrecuent ? clientsFrecuentLoading : clientsLoading;
 
     return (
         <div className="checkoutproduct-container">
@@ -114,8 +137,12 @@ export const ExitProduct = () => {
                 <div>
                     <label>Tipo de Cliente:</label>
                     <select
+                        className="form-select"
                         value={clientType}
-                        onChange={(e) => setClientType(e.target.value)}
+                        onChange={(e) => {
+                            setClientType(e.target.value);
+                            setEmail(""); 
+                        }}
                     >
                         <option value="">-- Selecciona un tipo de cliente --</option>
                         <option value="client">Cliente</option>
@@ -125,12 +152,22 @@ export const ExitProduct = () => {
 
                 <div>
                     <label>Email del Cliente:</label>
-                    <input
-                        type="email"
+                    <select
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Ej. cliente@correo.com"
-                    />
+                        disabled={!clientType || isLoading}
+                    >
+                        <option value="">-- Selecciona un email --</option>
+                        {selectedClients?.map((client) => (
+                            <option key={client._id} value={client.email}>
+                                {client.email} - {client.name || client.fullName}
+                            </option>
+                        ))}
+                    </select>
+                    {!clientType && (
+                        <p className="info-message">Selecciona un tipo de cliente primero</p>
+                    )}
+                    {isLoading && <p className="loading">Cargando clientes...</p>}
                 </div>
 
                 <div>

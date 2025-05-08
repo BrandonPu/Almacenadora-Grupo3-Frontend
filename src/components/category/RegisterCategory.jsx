@@ -51,6 +51,7 @@ export const AddCategory = ({ switchCategoryHandler }) => {
 
     return (
         <div className="registerCategories-container">
+            <h2 className="entry-titleCategory">Agregar Categoria</h2>
             <form className="Category-form">
                 <div>
                     <Input

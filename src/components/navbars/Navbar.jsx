@@ -58,6 +58,11 @@ export const Navbar = () => {
                             Reportes y Estadisticas
                             </NavLink>
                             </li>
+                            <li className="nav-item">
+                            <NavLink to="/userPage" className="nav-link">
+                            Usuarios
+                            </NavLink>
+                            </li>
                         </ul>
                         <div className="d-flex flex-column align-items-end gap-2 mt-4">
                             <NavLink

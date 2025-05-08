@@ -49,7 +49,7 @@ export const ReportPage = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar/>
             <div className="report-page">
                 <h1 className="report-page-title">📈 Panel de Reportes</h1>
 

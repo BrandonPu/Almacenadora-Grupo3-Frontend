@@ -24,8 +24,10 @@ export const RegisterSuppliers = () => {
 
     return (
         <div className="registerSupplier-container">
+            <h2 className="entry-titleSupplier">Agregar Proveedor</h2>
             <form onSubmit={handleSubmit} className="supplier-form">
                 <div>
+                <span>Nombre</span>
                 <input
                     type="text"
                     name="nameSupplier"
@@ -35,6 +37,7 @@ export const RegisterSuppliers = () => {
                     className="w-full border p-2 rounded"
                     required
                 />
+                <span>Email</span>
                 <input
                     type="email"
                     name="emailSupplier"
@@ -44,6 +47,7 @@ export const RegisterSuppliers = () => {
                     className="w-full border p-2 rounded"
                     required
                 />
+                <span>Numero</span>
                 <input
                     type="text"
                     name="phoneNumber"
@@ -53,6 +57,7 @@ export const RegisterSuppliers = () => {
                     className="w-full border p-2 rounded"
                     required
                 />
+                <span>Nombre del Producto</span>
                 <input
                     type="text"
                     name="nameProduct"

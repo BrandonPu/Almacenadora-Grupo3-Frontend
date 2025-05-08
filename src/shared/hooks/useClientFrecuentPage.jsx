@@ -25,5 +25,6 @@ export const useClientFrecuentPage = () => {
     return {
         clientFre,
         isLoading,
+        fetchClientsFrecuents
     };
 };

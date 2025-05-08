@@ -1,4 +1,3 @@
-/* Estilos generales del contenedor */
 .supplier-container {
     padding: 80px;
     background-color: #f5f1e6;
@@ -154,62 +153,51 @@ button:hover {
 /* Formulario de registro */
 /* Contenedor principal del formulario */
 .registerSupplier-container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 40px auto;
-    background-color: #11353c;
+    background: #ffffff;
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.15);
-    animation: fadeIn 0.6s ease-out;
+    box-shadow: 0 4px 12px rgba(0, 21, 38, 0.1);
+    animation: fadeIn 0.8s ease-out;
 }
 
 /* Título del formulario (si lo agregas) */
-.registerSupplier-container h2 {
+.entry-titleSupplier{
     color: #001526;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #004950;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #61460b;
+    padding-bottom: 10px;
 }
-
 /* Estructura del formulario */
 .supplier-form {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 25px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 /* Grupo de inputs */
-.supplier-form > div {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+.supplier-form, .span {
+    display: block;
+    color: #11353c;
+    font-weight: 600;
+    font-size: 1.2rem;
 }
 
 /* Estilos para los grupos de input */
 .supplier-form input {
     width: 100%;
-    padding: 14px 18px;
-    border: 2px solid #60502a;
+    padding: 10px;
+    border: 1px solid #60502a;
     border-radius: 6px;
     font-size: 1rem;
-    background-color: #e0e0e0d3;
+    background-color: #f9f9f9;
     color: #001526;
     transition: all 0.3s ease;
-}
-
-.input-group label {
-    font-weight: 500;
-    color: #11353c;
-    font-size: 0.95rem;
-}
-
-.input-group input {
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: all 0.2s;
 }
 
 .input-group input:focus {
@@ -227,8 +215,9 @@ button:hover {
 
 /* Botón de submit */
 .supplier-form button {
+    width: 85%;
     padding: 16px;
-    background-color: #61460b;
+    background-color: #004950;
     color: white;
     border: none;
     border-radius: 6px;
@@ -237,7 +226,9 @@ button:hover {
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 20px;
-    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .supplier-form button:hover:not(:disabled) {

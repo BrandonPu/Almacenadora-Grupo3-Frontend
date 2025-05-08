@@ -68,6 +68,7 @@ export const RegisterProduct = ({ switchProductHandler }) => {
 
     return (
         <div className="registerproducts-container">
+            <h2 className="entry-titleProduct">Agregar Producto</h2>
             <form className="product-form" onSubmit={handleRegister}>
                 <div>
                     <Input
@@ -97,33 +98,6 @@ export const RegisterProduct = ({ switchProductHandler }) => {
                         onBlurHandler={handleInputValidationOnBlur}
                         showErrorMessage={formState.stock.showError}
                     />
-                    <div className="form-group">
-                        <label className="form-label">Categoría</label>
-                        <select
-                            className="form-select"
-                            value={formState.nameCategory.value}
-                            onChange={(e) =>
-                                handleInputValueChange(e.target.value, "nameCategory")
-                            }
-                            onBlur={(e) =>
-                                handleInputValidationOnBlur(e.target.value, "nameCategory")
-                            }
-                        >
-                            <option value="">-- Selecciona una categoría --</option>
-                            {categories.map((cat) => (
-                                <option key={cat._id} value={cat.nameCategory}>
-                                    {cat.nameCategory}
-                                </option>
-                            ))}
-                        </select>
-                        {formState.nameCategory.showError && (
-                            <span className="error-message">
-                                Selecciona una categoría válida
-                            </span>
-                        )}
-                    </div>
-                </div>
-                <div>
                     <Input
                         field="price"
                         label="Price"
@@ -151,6 +125,31 @@ export const RegisterProduct = ({ switchProductHandler }) => {
                         onBlurHandler={handleInputValidationOnBlur}
                         showErrorMessage={formState.expirationDate.showError}
                     />
+                    <div className="form-group">
+                        <label className="form-label">Categoría</label>
+                        <select
+                            className="form-select"
+                            value={formState.nameCategory.value}
+                            onChange={(e) =>
+                                handleInputValueChange(e.target.value, "nameCategory")
+                            }
+                            onBlur={(e) =>
+                                handleInputValidationOnBlur(e.target.value, "nameCategory")
+                            }
+                        >
+                            <option value="">-- Selecciona una categoría --</option>
+                            {categories.map((cat) => (
+                                <option key={cat._id} value={cat.nameCategory}>
+                                    {cat.nameCategory}
+                                </option>
+                            ))}
+                        </select>
+                        {formState.nameCategory.showError && (
+                            <span className="error-message">
+                                Selecciona una categoría válida
+                            </span>
+                        )}
+                    </div>
                 </div>
 
                 <button type="submit" disabled={isSubmitButtonDisabled}>
