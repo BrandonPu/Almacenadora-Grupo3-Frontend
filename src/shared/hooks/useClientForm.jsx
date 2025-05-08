@@ -8,10 +8,10 @@ export const useClientForm = () => {
     const token = localStorage.getItem('token');
     const navigate = useNavigate();
 
-    const saveClient = async(userData)=>{
+    const saveClient = async(name, surname , email,phoneNumber)=>{
         setIsLoading(true)
 
-        const response = await saveClientRequest({userData})
+        const response = await saveClientRequest({name, surname , email, phoneNumber})
         
         setIsLoading(false)
 
@@ -22,7 +22,7 @@ export const useClientForm = () => {
         }
 
         toast.success('Cliente agregado correctamente')
-        navigate('/clietPage', { replace: true });
+        navigate('/clientPage', { replace: true });
         window.location.reload();
     }
 

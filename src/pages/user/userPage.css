@@ -3,7 +3,6 @@
     background-color: #f5f1e6;
     font-family: 'Arial', sans-serif;
     min-height: calc(100vh - 15px);
-    /* Ajustado para el navbar */
     animation: fadeIn 0.8s ease-out;
 }
 
@@ -69,6 +68,7 @@
     animation: fadeIn 0.8s ease-out;
 }
 
+
 /* Estilos para la tabla */
 .user-table-container table {
     width: 100%;
@@ -94,6 +94,50 @@
     background-color: #f3f1eca2;
 }
 
+.user-table-container select {
+    width: 150px;
+    margin-block-end: 15px;
+    color: #001526;
+    transition: all 0.3s ease;padding: 5px 5px;
+    border: 1px solid #001526;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: #f9f9f9;
+}
+
+.user-table-container .btnUpdateRole:disabled {
+    width: 150px;
+    margin-block-end: 15px;
+    color: #001526;
+    transition: all 0.3s ease;padding: 5px 5px;
+    border: 1px solid #001526;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: #f9f9f9;
+}
+
+.user-table-container .btnUpdateRole:hover:not(:disabled) {
+    width: 150px;
+    margin-block-end: 15px;
+    color: #f9f9f9;
+    transition: all 0.3s ease;padding: 5px 5px;
+    border: 1px solid #001526;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: #001526de;
+}
+
+.user-table-container .btnUpdateRole:not(:disabled) {
+    width: 150px;
+    margin-block-end: 15px;
+    color: #f9f9f9;
+    transition: all 0.3s ease;padding: 5px 5px;
+    border: 1px solid #001526;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: #001526;
+}
+
 /* Botones de acción */
 .action-btn {
     padding: 8px 15px;
@@ -106,6 +150,8 @@
 }
 
 .btnUserDelete {
+    width: 80px;
+    height: 40px;
     background-color: #d32f2f;
     color: white;
 }

@@ -76,10 +76,10 @@ export const CategoryTable = () => {
                                 <td>{category.nameCategory}</td>
                                 <td>{category.description}</td>
                                 <td>
-                                    <button onClick={() => handleEdit(category)}>Editar</button>
+                                    <button className="btnUpdateCategory" onClick={() => handleEdit(category)}>Editar</button>
                                 </td>
                                 <td>
-                                    <button onClick={() => handleDelete(category._id)}>Eliminar</button>
+                                    <button className="btnDeleteCategory" onClick={() => handleDelete(category._id)}>Eliminar</button>
                                 </td>
                             </tr>
                         ))}

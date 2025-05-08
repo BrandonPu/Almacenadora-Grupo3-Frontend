@@ -92,6 +92,7 @@ export const SupplierTable = () => {
                             </td>
                             <td className="actions">
                                 <button 
+                                    className='btnUpdateSupplier'
                                     onClick={() => handleEdit(supplier)}
                                 >
                                     Editar
@@ -99,6 +100,7 @@ export const SupplierTable = () => {
                             </td>
                             <td>
                                 <button 
+                                    className='btnDeleteSupplier'
                                     onClick={() => handleDelete(supplier._id)}
                                 >
                                     Eliminar

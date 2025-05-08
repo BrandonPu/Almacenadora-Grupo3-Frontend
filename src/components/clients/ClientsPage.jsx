@@ -73,10 +73,10 @@ export const ClientsPage = () => {
                                 <td>{new Date(client.createdAt).toLocaleString()}</td>
                                 <td>{new Date(client.updatedAt).toLocaleString()}</td>
                                 <td>
-                                    <button onClick={() => handleEdit(client)}>Editar</button>
+                                    <button className="btnUpdateClient" onClick={() => handleEdit(client)}>Editar</button>
                                 </td>
                                 <td>
-                                    <button onClick={() => handleDelete(client._id)}>Eliminar</button>
+                                    <button className="btnDeleteClient" onClick={() => handleDelete(client._id)}>Eliminar</button>
                                     
                                 </td>
                             </tr>

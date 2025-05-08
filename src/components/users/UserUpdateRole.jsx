@@ -23,6 +23,7 @@ export const UserUpdateRole = ({ userId, currentRole }) => {
             </select>
 
             <button
+                className="btnUpdateRole"
                 onClick={handleUpdateRole}
                 disabled={loading || selectedRole === currentRole}
             >
