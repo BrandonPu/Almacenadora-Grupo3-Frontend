@@ -58,5 +58,5 @@ export const ClientPage = () => {
                 {viewMode === "agregar2" && <ClientFrecuentForm />}
             </div>
         </>
-    );
+    )
 }

@@ -15,7 +15,7 @@ export const useClientFrecuentForm = () => {
 
         if(response.error){
             return toast.error(
-                response?.e?.response?.data?.message || 'Revise correo Y Compras minima para ser un cliente frecuente 10 '
+                response?.e?.response?.data?.message || 'Compras minima para ser un cliente frecuente es de 11 '
             )
         }
 

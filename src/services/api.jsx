@@ -355,6 +355,27 @@ export const clientFrecuentSave = async (data) => {
     }
 }
 
+export const clientFrecuentDelete = async (id) => {
+    try {
+        const response = await apiClient.delete(`/frecuentClients/deleteFrecuentClient/${id}`, {
+          data: { confirmDeletion: true },
+        });
+        return response.data;
+      } catch (e) {
+        return { error: true, e }
+      }
+}
+
+export const clientFrecuentUpdate = async(id, data) => {
+    try {
+        return await apiClient.put(`/frecuentClients/updateFrecuentClient/${id}`, data)
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }
+    }
+}
 
 export const updateUser = async (data) => {
     try {

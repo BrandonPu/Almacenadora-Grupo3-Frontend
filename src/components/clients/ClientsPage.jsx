@@ -5,22 +5,16 @@ import {
 } from "../../shared/hooks";
 
 export const ClientsPage = () => {
-    const { clients, isLoading } = useClientPage();
-    const { deleteClients } = useClientDelete();
-    const {updateClients} = useClientUpdate();
+    const { clients, isLoading , fetchClients} = useClientPage()
+    const { deleteClients } = useClientDelete()
+    const {updateClients} = useClientUpdate()
 
 
     const handleDelete = async (id) =>{
-        const confirmed = window.confirm("¿Seguro que deseas eliminar este Cliente?");
-        if (!confirmed) return;
-    
-        const response = await deleteClients(id);
-        if (response.error) {
-          alert("Error al eliminar Cliente");
-        } else {
-          alert("Cliente eliminado correctamente");
-          window.location.reload();
-        }
+        const confirmed = window.confirm("¿Seguro que deseas eliminar este Cliente?")
+        if (!confirmed) return
+        await deleteClients(id)
+        await fetchClients()
     }
 
     const handleEdit = async (client) =>{
@@ -41,8 +35,8 @@ export const ClientsPage = () => {
             phoneNumber
         }
 
-        const response = await updateClients(client._id, data);
-        window.location.reload();
+        await updateClients(client._id, data)
+        await fetchClients()
 
     }
 
