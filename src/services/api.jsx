@@ -63,9 +63,10 @@ export const addSupplier = async (data) => {
     try {
         return await apiClient.post('/suppliers/addSuplier', data)
     } catch (error) {
+        const msg = error.response?.data  
         return {
             error: true,
-            message: error.response?.data || "Error al registrar al Proveedor"
+            message: msg
         }
     }
 }
@@ -114,9 +115,10 @@ export const registerProduct = async (productData) => {
     try {
         return await apiClient.post("/products/addProduct", productData);
     } catch (error) {
+        const msg = error.response?.data   
         return {
             error: true,
-            message: error.response?.data || "Error al registrar el producto"
+            message: msg
         };
     }
 };
@@ -304,9 +306,10 @@ export const saveClient = async(data) => {
     try {
         return await apiClient.post('/frecuentClients/addClient',data)
     } catch (e) {
+        const msg = e.response?.data  
         return{
             error: true,
-            e
+            message: msg
         }
     }
 }

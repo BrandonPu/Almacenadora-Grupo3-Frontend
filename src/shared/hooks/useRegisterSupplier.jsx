@@ -15,7 +15,7 @@ export const useRegisterSupplier = () => {
         setIsLoading(false);
 
         if(response.error) {
-            return toast.error(response.error?.response?.data || 'Error al registrar al proveedor');
+            return toast.error(response.message?.msg || 'Error al registrar al proveedor');
         }
         toast.success("Categoria registrada correctamente");
         navigate('/supplierPage', { replace: true });

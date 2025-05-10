@@ -8,7 +8,7 @@ export const useClientForm = () => {
     const token = localStorage.getItem('token');
     const navigate = useNavigate();
 
-    const saveClient = async(name, surname , email,phoneNumber)=>{
+    const saveClient = async(name, surname, email, phoneNumber)=>{
         setIsLoading(true)
 
         const response = await saveClientRequest({name, surname , email, phoneNumber})
@@ -16,8 +16,10 @@ export const useClientForm = () => {
         setIsLoading(false)
 
         if(response.error){
+            console.log(response);
+            
             return toast.error(
-                response?.e?.response?.data?.message || 'Ocurrio un error al agregar Cliente'
+                response.message?.msg || 'Ocurrio un error al agregar Cliente'
             )
         }
 

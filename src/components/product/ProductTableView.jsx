@@ -122,7 +122,8 @@ export const ProductTable = () => {
                                 <td>{product.stock}</td>
                                 <td>Q.{product.price}</td>
                                 <td>{new Date(product.entryDate).toISOString().split("T")[0]}</td>
-                                <td>{new Date(product.expirationDate).toISOString().split("T")[0]}</td>
+                                <td>{product.expirationDate ? new Date(product.expirationDate).toISOString().split("T")[0] : "Sin fecha"}</td>
+
                                 <td>
                                     <button className="btnUpdateProduct" onClick={() => handleEdit(product)}>Editar</button>
                                 </td>

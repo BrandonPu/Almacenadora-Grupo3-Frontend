@@ -15,7 +15,7 @@ export const useRegisterCategory = () => {
         setIsLoading(false);
 
         if(response.error){
-            return toast.error(response.error?.response?.data || 'Error al registrar categoría');
+            return toast.error(response.error?.response?.data || 'Category already exists');
         }
 
         toast.success('Categoría registrada correctamente');

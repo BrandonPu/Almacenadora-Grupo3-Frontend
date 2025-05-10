@@ -16,7 +16,7 @@ export const useRegisterProducts = () => {
         setIsLoading(false)
 
         if(response.error){
-            return toast.error(response.error?.response?.data || 'Ocurrio un error al registrar Producto, revise e intenta de nuevo')
+            return toast.error(response.message?.msg || 'Ocurrio un error al registrar Producto, revise e intenta de nuevo')
         }
 
         const { productDetails } = response.data
